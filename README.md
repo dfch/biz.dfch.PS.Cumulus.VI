@@ -9,8 +9,6 @@ This Microsoft PowerShell module contains Cmdlets to perform various base action
 
 You can also download this module via [NuGet](http://nuget.org) with [Install-Package biz.dfch.PS.Cumulus.VI](https://www.nuget.org/packages/biz.dfch.PS.Cumulus.VI/)
 
-See http://d-fens.ch/2014/11/28/module-biz-dfch-ps-cumulus-vi/
-
 VMware PowerCLI and other external DLLs are not part of this Apache 2.0 licensed project. You have to download them separately.
 
 See the [d-fens web site](http://d-fens.ch/2014/11/28/module-biz-dfch-ps-cumulus-vi/) and the [Wiki](https://github.com/dfch/biz.dfch.PS.Cumulus.VI/wiki) for a detailed description on how to use the Cmdlets in this module.
