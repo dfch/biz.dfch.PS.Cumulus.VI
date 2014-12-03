@@ -1,4 +1,4 @@
-function Generate-VirtualMachineBuildFloppy {
+function New-VirtualMachineFloppyImage {
 <#
 .SYNOPSIS 
 SCCM Static IP Addressing Floppy creation script
@@ -10,7 +10,7 @@ The VMBuildFloppy script is used to generate, copy and mount the virtual floppy 
 
 .NOTES
 
-See module manifest for required software versions and dependencies:
+See module manifest for required software versions and dependencies at:
 http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
 
 Requires 'bfi.exe' for floppy build
@@ -247,14 +247,14 @@ param
 
 } # function
 
-if($MyInvocation.ScriptName) { Export-ModuleMember -Function Generate-VirtualMachineBuildFloppy; } 
+if($MyInvocation.ScriptName) { Export-ModuleMember -Function New-VirtualMachineFloppyImage; } 
 
 
 # SIG # Begin signature block
 # MIIW3AYJKoZIhvcNAQcCoIIWzTCCFskCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUfome7XOEZ9R/zs4gtaX4c2IS
-# W26gghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUiUoR98dRwXLFJ5KAZY7jFLQe
+# NEigghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
 # VzELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExEDAOBgNV
 # BAsTB1Jvb3QgQ0ExGzAZBgNVBAMTEkdsb2JhbFNpZ24gUm9vdCBDQTAeFw0xMTA0
 # MTMxMDAwMDBaFw0yODAxMjgxMjAwMDBaMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQK
@@ -352,25 +352,25 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function Generate-VirtualMac
 # bnYtc2ExJzAlBgNVBAMTHkdsb2JhbFNpZ24gQ29kZVNpZ25pbmcgQ0EgLSBHMgIS
 # ESFgd9/aXcgt4FtCBtsrp6UyMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQow
 # CKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcC
-# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBRpLltnb7goQqtpf3u1
-# v2KYpV4DsjANBgkqhkiG9w0BAQEFAASCAQDPp13Yk1Age8TAjzpBAKApSHC56Ps3
-# bxhmyQJrqXA1EUZJkXRPLprELUCpNJXXTWQH1iQA6eZS3egBw6GyK7l/MGIsx5+R
-# CM2xbdXYxsztpJ7CbSwxjX/Li02lkETjm1BMkhJ/tLf/fIMhIDnGhtMRmyyeslD4
-# kQchuOK8KmTCdwyVz192qA7zPOM+7wqu6Gv+2Ej6TWkIEVVI2JSUgP/qFowQ/A9s
-# sadYsnWD972Td00Z1tJse+Jf1vDHP4ppGQ1N0F2IOawdvCdUT/8sXHKKiXAWlHzU
-# APlXk4LMQmTdk+eBuXo1+2Ah9gtMlDymI2TNhW2XZ5jROzg1F/RHSds7oYICojCC
+# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBRS8xhPs5ECWvoCRDr2
+# UoWUs+EnbTANBgkqhkiG9w0BAQEFAASCAQAYSLAfRODfDFaaNb0UWhiW5YgqxRtX
+# 0b7c8ta1QfcrUYATcTCejZPSJQa7+VpyYEJXXNi/tT++bTLTyDCLIfCny/4S6kpq
+# YnZ1Sh0ezUFD8o52Adh5QqxEK5okmZS6weZU9CCwPjR1St+c/N4czark8uOIt9BT
+# xhmthyTWwbBdckyAAzcyjQpKtsM74+OkWL8zmU7B/yZb9A0xEfzV08Bon0DrBhfy
+# cCDSeKDMA6x8lYRo+yDtlck9tKmRfhorxBHMyesPD+bIrbcotdnS1ZGkLtJiy2Vs
+# fuaJOIwxTbkpziu7KImkz73if5K9TCTAF1sDU1czSeR02lONTVhhYwWNoYICojCC
 # Ap4GCSqGSIb3DQEJBjGCAo8wggKLAgEBMGgwUjELMAkGA1UEBhMCQkUxGTAXBgNV
 # BAoTEEdsb2JhbFNpZ24gbnYtc2ExKDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0
 # YW1waW5nIENBIC0gRzICEhEhQFwfDtJYiCvlTYaGuhHqRTAJBgUrDgMCGgUAoIH9
 # MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MTIw
-# MzA0MTQxNVowIwYJKoZIhvcNAQkEMRYEFPnBdOpUct1eYUBMLnS1P1sNLHb6MIGd
+# MzE1Mjg0MVowIwYJKoZIhvcNAQkEMRYEFGkQj052IMv8T935+BFXLB6hKThhMIGd
 # BgsqhkiG9w0BCRACDDGBjTCBijCBhzCBhAQUjOafUBLh0aj7OV4uMeK0K947NDsw
 # bDBWpFQwUjELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2Ex
 # KDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0YW1waW5nIENBIC0gRzICEhEhQFwf
-# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQApMbAREYH/2V69+l+0YS34
-# OBCjhfVQjCOkVCO9KAs/xPXEkJ07SUBEPvw7tQdSmuD1GQiffwD5It0XZf3lE2o2
-# +oe/TEd+B15ZSvoSeVh0Jje4oHbUPwGhL+7vCPa6FS3tjNtN71+JO5dI/DzB0sIp
-# xTTbqOqSkM/lF/TsUHYltIRJxwkXDSJvjubt7aJN4nMlGqUfp2NUD5rR1mQj7IS8
-# ekpXzda415xRRB2/HBAQwXTa+hjqXm6n2fbQNxfgeNoaT2NhMtiiAMpKp3eReZq/
-# tO3x9B2wlDVcXOcYTzwG8mCc45iPGaZbI4SQ9xHrLotjXJsfuVVEruMQzTXnoVGM
+# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQCTNBo8gsRxA0cy1j5ylPNu
+# jDIIgy4DWBu8DCiXBwYiyFp4h2FOelhMSEpfCII9Vclpg7ef+TspdNmYMdbzoXeF
+# a2WAm6MGa7M3s4SSYcAG0WnKKM+ravMFqcxDOxPowXBeYYMGuEa0jjjCD8GMi7it
+# KSJOftLhT0IcgT2/ogp5nBECY607x6QCTRr7J9BwZfIdQkXfvlAcTujgHth93kCf
+# 2RHr1lmetGJD378bpycIjPES+TSD6W1owTVybGR9h/hl+oZXsg1ukcSCas7a4WNu
+# 4tlvinuORGMtzrlENZ80Nr/GXphEX/IrDi0mnMEJ3MDIb4K0Qss/ggLdzxv7N6EX
 # SIG # End signature block
