@@ -3,6 +3,14 @@ Function Set-VirtualMachineVideoMemory {
 .SYNOPSIS
 
 Changes the video memory of a VirtualMachine
+
+
+.NOTES
+
+See module manifest for required software versions and dependencies:
+http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
+
+
 #>
 
 PARAM

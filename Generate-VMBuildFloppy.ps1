@@ -1,74 +1,81 @@
-Function Generate-VirtualMachineBuildFloppy
-{
-	<#
-				.SYNOPSIS 
-				SCCM Static IP Addressing Floppy creation script
+function Generate-VirtualMachineBuildFloppy {
+<#
+.SYNOPSIS 
+SCCM Static IP Addressing Floppy creation script
 
-				.DESCRIPTION
-				The VMBuildFloppy script is used to generate, copy and mount the virtual floppy image to the target virtual machine.
-				
-				.NOTES
-				0.2 16.08.2014
-				Requires VMware Powercli,
-				d-fens biz.dfch.PS.System.Logging,
-				bfi.exe
-	#>
 
-	param
-	(
+.DESCRIPTION
+The VMBuildFloppy script is used to generate, copy and mount the virtual floppy image to the target virtual machine.
 
-		[Parameter(Mandatory = $false, Position = 0)]
-		[ValidateNotNullOrEmpty()]
-		[string[]] $vCenterNames
-		,
-		[Parameter(Mandatory = $false, Position = 1)]
-		[ValidateNotNullOrEmpty()]
-		[System.Management.Automation.PSCredential] $vCenterCred
-		,
-		[Parameter(Mandatory = $true, Position = 2)]
-		[ValidateNotNullOrEmpty()]
-		[string] $VMname
-		,
-		[Parameter(Mandatory = $true, Position = 3)]
-		[ValidateNotNullOrEmpty()]
-		[string] $IpAddr
-		,
-		[Parameter(Mandatory = $true, Position = 4)]
-		[ValidateNotNullOrEmpty()]
-		[string] $Subnet
-		,
-		[Parameter(Mandatory = $true, Position = 5)]
-		[ValidateNotNullOrEmpty()]
-		[string] $Gateway
-		,
-		[Parameter(Mandatory = $true, Position = 6)]
-		[ValidateNotNullOrEmpty()]
-		[string] $PrimDNS
-		,
-		[Parameter(Mandatory = $true, Position = 7)]
-		[ValidateNotNullOrEmpty()]
-		[string] $SeconDNS
-		,
-		[Parameter(Mandatory = $true, Position = 8)]
-		[ValidateNotNullOrEmpty()]
-		[string] $DNSSufix
-		,
-		[Parameter(Mandatory = $false, Position = 9)]
-		[ValidateNotNullOrEmpty()]
-		[string] $basePath = "$env:ProgramFiles\dfch\cumulus\IPDeployment"
-		,
-		[Parameter(Mandatory = $false, Position = 10)]
-		[ValidateNotNullOrEmpty()]
-		[string] $configFile
-		,
-		[Parameter(Mandatory = $false, Position = 11)]
-		[ValidateNotNullOrEmpty()]
-		[string] $BFISoftFile=( Join-Path  $basePath 'SourceSoftware\bfi10\bfi.exe' )
-		,
-		[Parameter(Mandatory = $false, Position = 12)]
-		[ValidateNotNullOrEmpty()]
-		[boolean] $disconnectVC = $false
-	)
+
+.NOTES
+
+See module manifest for required software versions and dependencies:
+http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
+
+Requires 'bfi.exe' for floppy build
+
+
+#>
+
+param
+(
+
+	[Parameter(Mandatory = $false, Position = 0)]
+	[ValidateNotNullOrEmpty()]
+	[string[]] $vCenterNames
+	,
+	[Parameter(Mandatory = $false, Position = 1)]
+	[ValidateNotNullOrEmpty()]
+	[System.Management.Automation.PSCredential] $vCenterCred
+	,
+	[Parameter(Mandatory = $true, Position = 2)]
+	[ValidateNotNullOrEmpty()]
+	[string] $VMname
+	,
+	[Parameter(Mandatory = $true, Position = 3)]
+	[ValidateNotNullOrEmpty()]
+	[string] $IpAddr
+	,
+	[Parameter(Mandatory = $true, Position = 4)]
+	[ValidateNotNullOrEmpty()]
+	[string] $Subnet
+	,
+	[Parameter(Mandatory = $true, Position = 5)]
+	[ValidateNotNullOrEmpty()]
+	[string] $Gateway
+	,
+	[Parameter(Mandatory = $true, Position = 6)]
+	[ValidateNotNullOrEmpty()]
+	[string] $PrimDNS
+	,
+	[Parameter(Mandatory = $true, Position = 7)]
+	[ValidateNotNullOrEmpty()]
+	[string] $SeconDNS
+	,
+	[Parameter(Mandatory = $true, Position = 8)]
+	[ValidateNotNullOrEmpty()]
+	[string] $DNSSufix
+	,
+	[ValidateScript( { Test-Path($_) -PathType Container;} )]
+	[Parameter(Mandatory = $false, Position = 9)]
+	[ValidateNotNullOrEmpty()]
+	[string] $basePath = "$env:ProgramFiles\dfch\cumulus\IPDeployment"
+	,
+	[Parameter(Mandatory = $false, Position = 10)]
+	[ValidateNotNullOrEmpty()]
+	[string] $configFile
+	,
+	[ValidateScript( { Test-Path($_) -PathType Leaf; } )]
+	[Parameter(Mandatory = $false, Position = 11)]
+	[ValidateNotNullOrEmpty()]
+	[string] $BFISoftFile=( Join-Path  $basePath 'SourceSoftware\bfi10\bfi.exe' )
+	,
+	[Parameter(Mandatory = $false, Position = 12)]
+	[ValidateNotNullOrEmpty()]
+	[boolean] $disconnectVC = $false
+)
+
 	try 
 	{
 

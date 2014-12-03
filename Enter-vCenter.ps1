@@ -1,4 +1,4 @@
-Function Enter-vCenter {
+function Enter-vCenter {
 <#
 .SYNOPSIS
 
@@ -8,6 +8,12 @@ Connect to the required vCenter Servers
 .DESCRIPTION
 
 Helper Function - Connect to the required vCenter Servers
+
+
+.NOTES
+
+See module manifest for required software versions and dependencies:
+http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
 
 
 #>

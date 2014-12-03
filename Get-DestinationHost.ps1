@@ -1,4 +1,4 @@
-Function Get-DestinationHost {
+function Get-DestinationHost {
 <#
 .SYNOPSIS
 
@@ -8,6 +8,13 @@ Get target host for VM deployment
 .DESCRIPTION
 
 Helper Function - Get target host for VM deployment
+
+
+.NOTES
+
+See module manifest for required software versions and dependencies:
+http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
+
 
 #>	
 

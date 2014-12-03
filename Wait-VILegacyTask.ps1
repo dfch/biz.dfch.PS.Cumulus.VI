@@ -3,6 +3,14 @@ Function Wait-VILegacyTask {
 .SYNOPSIS
 
 Waits for a given VI task until it is completed whether successfully or not
+
+
+.NOTES
+
+See module manifest for required software versions and dependencies:
+http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
+
+
 #>
 PARAM
 (

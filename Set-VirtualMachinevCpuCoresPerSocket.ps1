@@ -1,5 +1,17 @@
 Function Set-VirtualMachinevCpuCoresPerSocket {
+<#
+.SYNOPSIS
 
+Sets the vCPU socket to core ratio of a virtual machine
+
+
+.NOTES
+
+See module manifest for required software versions and dependencies:
+http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
+
+
+#>
 Param
 (
 	[Parameter(Mandatory = $true, Position = 0)]

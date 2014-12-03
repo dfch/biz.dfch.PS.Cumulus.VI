@@ -1,5 +1,17 @@
-Function New-VirtualMachineNetworkConfiguration {
+function New-VirtualMachineNetworkConfiguration {
+<#
+.SYNOPSIS
 
+Creates a new network configuration for a virtual machine
+
+
+.NOTES
+
+See module manifest for required software versions and dependencies:
+http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
+
+
+#>
 Param
 (
 	[Parameter(Mandatory = $true, Position = 0)]

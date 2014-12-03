@@ -3,6 +3,14 @@ Function Set-VMwareToolsSyncTimeWithHost {
 .SYNOPSIS
 
 Indicates whether or not the tools program will sync time with the host time.
+
+
+.NOTES
+
+See module manifest for required software versions and dependencies:
+http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
+
+
 #>
 
 Param

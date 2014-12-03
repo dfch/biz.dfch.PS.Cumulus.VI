@@ -1,5 +1,17 @@
-Function Set-VirtualMachineBootFromCD {
+function Set-VirtualMachineBootFromCD {
+<#
+.SYNOPSIS
 
+Sets the boot configuration of a virtual machine to boot from CDROM
+
+
+.NOTES
+
+See module manifest for required software versions and dependencies:
+http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
+
+
+#>
 PARAM
 ( 
 	[Parameter(Mandatory = $true, Position = 0)]

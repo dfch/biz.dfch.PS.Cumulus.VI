@@ -1,5 +1,17 @@
-Function Set-VirtualMachineNetworkConfiguration {
+function Set-VirtualMachineNetworkConfiguration {
+<#
+.SYNOPSIS
 
+Sets the network of a virtual machine
+
+
+.NOTES
+
+See module manifest for required software versions and dependencies:
+http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
+
+
+#>
 PARAM
 (
 	[Parameter(Mandatory = $true, Position = 1)]

@@ -3,6 +3,14 @@ Function Set-VMwareToolsUpgradePolicy {
 <#
 .SYNOPSIS
 The policy setting used to determine when tools are auto-upgraded for a virtual machine
+
+
+.NOTES
+
+See module manifest for required software versions and dependencies:
+http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
+
+
 #>
 
 Param

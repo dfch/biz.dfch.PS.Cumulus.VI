@@ -1,5 +1,17 @@
-Function Validate-VirtualMachinevCpuCoresPerSocket {
-		
+Function Test-VirtualMachinevCpuCoresPerSocket {
+<#
+.SYNOPSIS
+
+Validates the core to socket ratio of a virtual machine
+
+
+.NOTES
+
+See module manifest for required software versions and dependencies:
+http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
+
+
+#>		
 PARAM
 (
 	[Parameter(Mandatory = $true, Position = 1)]
@@ -60,7 +72,7 @@ Log-Debug -fn $fn -msg "RET. fReturn: [$fReturn]. Execution time: [$(($datEnd - 
 return $OutputParameter;
 
 } # function
-if($MyInvocation.ScriptName) { Export-ModuleMember -Function Validate-VirtualMachinevCpuCoresPerSocket; } 
+if($MyInvocation.ScriptName) { Export-ModuleMember -Function Test-VirtualMachinevCpuCoresPerSocket; } 
 
 
 # SIG # Begin signature block

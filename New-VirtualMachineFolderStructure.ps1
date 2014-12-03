@@ -1,4 +1,4 @@
-Function New-VirtualMachineFolderStructure {	
+function New-VirtualMachineFolderStructure {	
 <#
 
 .SYNOPSIS
@@ -80,9 +80,10 @@ Online Version: http://dfch.biz/PS/Cumulus/Utilities/New-VirtualMachineFolderStr
 
 .NOTES
 
-Requires Powershell v3.
+See module manifest for required software versions and dependencies:
+http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
 
-Requires module 'biz.dfch.PS.System.Logging'.
+
 #>
 
 PARAM

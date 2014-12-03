@@ -1,4 +1,4 @@
-Function Set-VirtualMachineFloppyDrive {
+function Set-VirtualMachineFloppyDrive {
 
 <#
 
@@ -64,15 +64,14 @@ Set-VirtualMachineFloppyDrive -DeleteMedia -Floppy $Floppy
 
 .LINK
 
-Online Version: http://dfch.biz/PS/Cumulus/VI/Set-VirtualMachineFloppyDrive/
-
+Online Version: http://dfch.biz/biz/dfch/PS/Cumulus/VI/Set-VirtualMachineFloppyDrive/
 
 
 .NOTES
 
-Requires Powershell v3.
+See module manifest for required software versions and dependencies at.
 
-Requires module 'biz.dfch.PS.System.Logging'.
+
 #>
 
 PARAM
