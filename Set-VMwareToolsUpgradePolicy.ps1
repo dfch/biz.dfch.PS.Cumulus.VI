@@ -7,7 +7,7 @@ The policy setting used to determine when tools are auto-upgraded for a virtual 
 
 .NOTES
 
-See module manifest for required software versions and dependencies:
+See module manifest for required software versions and dependencies at:
 http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
 
 
@@ -15,10 +15,12 @@ http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
 
 Param
 (
+	# Specifies a virtual machine on which to apply the upgrade policy
 	[Parameter(Mandatory = $true, Position = 0)]
 	[ValidateNotNullOrEmpty()]
 	[VMware.VimAutomation.ViCore.Impl.V1.Inventory.VirtualMachineImpl] $VM
 	,
+	# Specifies the type of upgrade policy to apply
 	[ValidateSet("manual","upgradeAtPowerCycle")]
 	[ValidateNotNullOrEmpty()]
 	[String] $UpgradePolicy
@@ -52,8 +54,8 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function Set-VMwareToolsUpgr
 # SIG # Begin signature block
 # MIIW3AYJKoZIhvcNAQcCoIIWzTCCFskCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUPKpO+7SsLzTQAFIcDnejZBWV
-# r5igghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUqBJMVsC1tS2phIYZbO0dEGV5
+# 8ZqgghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
 # VzELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExEDAOBgNV
 # BAsTB1Jvb3QgQ0ExGzAZBgNVBAMTEkdsb2JhbFNpZ24gUm9vdCBDQTAeFw0xMTA0
 # MTMxMDAwMDBaFw0yODAxMjgxMjAwMDBaMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQK
@@ -151,25 +153,25 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function Set-VMwareToolsUpgr
 # bnYtc2ExJzAlBgNVBAMTHkdsb2JhbFNpZ24gQ29kZVNpZ25pbmcgQ0EgLSBHMgIS
 # ESFgd9/aXcgt4FtCBtsrp6UyMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQow
 # CKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcC
-# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBTdEQP035JAvXRX8esW
-# MQ8shqHORTANBgkqhkiG9w0BAQEFAASCAQBFTWmasNB8/xe6sSYdKxKOcepziUcT
-# rkUTtXoGOdr+tn7PCTxLMXiYq5TxOO1RIK2i8JbkuOM4YAJdDfCIZs43FdOMt7RD
-# pOtXOln6hYsuyD2qmOVxh7zW2NubA3oVkPgPHlBDzofEUhmoEH5sW4xS6FHxjoen
-# oi5cQNkjtyk531HahjQoMMBWYUjUnS17cA2fZvUlUPQthTZJ2Bq0wmK32rOg6AUJ
-# f5nN8heg1jtbYSEDug0JVZuR4ZdpBpif4io5udHQvu4U1D0E5tt/fXUiQ6VqQKp+
-# 3mJIwVK0o+pCIBmuD7yjmDGSGtDg2B6OhxmKCDsOzlkdoQs2hPG9g8UooYICojCC
+# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBTHKEgzlDac0feFIQO6
+# 6uHf9vR3ojANBgkqhkiG9w0BAQEFAASCAQBPA9k7Miw/PXlDSJPaJF0l+oImt3g0
+# Gp55fB2jR3AEeYebDfbIqodg8Muvp6oopnDz6n2aYGewu2MiiIROC6uyvDV/mEGv
+# B7jgOoPq2J+GMyGI2G0CbjESkdoz5Xw0xsUPRadF/aIM8e++DMaPaxCaXfbd8nKJ
+# N26QD+Hovhi9rdM85arXOYDVjmAd1HNRvj1vHEAzKr08lFkUmF/NZ5cYVJAxd2hC
+# c4pG9tWwTfd5C3UANFmuWgI1b/JKomrinxTCV3Y8qY6/B8nNo423+0ypU1x6cl6n
+# byecHW52oDHGEl0c5+SOHtQU0inYWgivS0Ok+HwTUZQpNTRIfNP5F13PoYICojCC
 # Ap4GCSqGSIb3DQEJBjGCAo8wggKLAgEBMGgwUjELMAkGA1UEBhMCQkUxGTAXBgNV
 # BAoTEEdsb2JhbFNpZ24gbnYtc2ExKDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0
 # YW1waW5nIENBIC0gRzICEhEhQFwfDtJYiCvlTYaGuhHqRTAJBgUrDgMCGgUAoIH9
 # MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MTIw
-# MzA0MTQyMlowIwYJKoZIhvcNAQkEMRYEFOR1GJCItlMi+fov9YnOn9OQFJW4MIGd
+# MzA4MjMyNVowIwYJKoZIhvcNAQkEMRYEFKN8uRw83qu9ODzyAOolrLKbk/WJMIGd
 # BgsqhkiG9w0BCRACDDGBjTCBijCBhzCBhAQUjOafUBLh0aj7OV4uMeK0K947NDsw
 # bDBWpFQwUjELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2Ex
 # KDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0YW1waW5nIENBIC0gRzICEhEhQFwf
-# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQA7ycWNPsh6KCsp1b0nQl7N
-# RhfTB5vvb1TD2S+5Z2FVuu2Xz8coJUoNBo+BjrztzlP9Pmw2+0PKrjW1uMg1H4WG
-# oNwBsmzzt6buV2gdA2IrfkDSJa3cZh9QPL/iTt8RnV5mfdKI/DprZ+FhuGon0JPr
-# XALI46S8HuE8X5d2GC0dI1MKk5XZo3Gmonr4aUQoPSVVwKBrVN3mFEn+Nx1OWdZS
-# pqgGsbx8D1CZiec1+cVwk9xxFNqx9uLD3qsgsWBJDfuUI6J2Jk4HsLzMo3b9UVQ0
-# PWYdVWGtQH0a0mUc2TJfGWXq9yFXBX+ifEIx1SfCyFvyUBl2vHVY0bGNkZEYGJBQ
+# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQCHBfjRbw6aHMxNSax6KMLH
+# lE8JYlJS4otTltBUajfXBzAbcAJp6wPVBWf18HdGPa3J0yFQDR8ccIj7G/cMwzbL
+# 1fiJA0lno3lVW80T1e6xQU4WBg3XSYuunuPCRNumxsqszAUeNh1kooXpLskPEh5r
+# KRYxHlI+wx3ejyEWilDCaX4HRDUFyVtBeUy80vPYgDceL9TWHgpN7MgCviw1NRG7
+# UTkrnujLHEGR2ERJ8zmQvk2Fpg50+Dl5OvJmTeVZwag/+LcMKzQ8piStPo9V1ac7
+# aJeOm1djlq00YjesgJIVROehSowjExodTwD1aY+vsFNYaIRd5dprhp/XUVoHPUrx
 # SIG # End signature block

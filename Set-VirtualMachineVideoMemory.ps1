@@ -7,7 +7,7 @@ Changes the video memory of a VirtualMachine
 
 .NOTES
 
-See module manifest for required software versions and dependencies:
+See module manifest for required software versions and dependencies at:
 http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
 
 
@@ -15,6 +15,7 @@ http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
 
 PARAM
 (
+	# Specifies a virtual machine to set the video memory 
 	[Parameter(Mandatory = $true, Position = 0)]
 	[ValidateNotNullOrEmpty()]
 	[VMware.VimAutomation.ViCore.Impl.V1.Inventory.VirtualMachineImpl] $VirtualMachine
@@ -55,8 +56,8 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function Set-VirtualMachineV
 # SIG # Begin signature block
 # MIIW3AYJKoZIhvcNAQcCoIIWzTCCFskCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUu6wB5sNGWuMY9v5crAME6eHr
-# zL6gghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUVrDtK8dOD9ek7pQeV+S08jvS
+# a7ygghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
 # VzELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExEDAOBgNV
 # BAsTB1Jvb3QgQ0ExGzAZBgNVBAMTEkdsb2JhbFNpZ24gUm9vdCBDQTAeFw0xMTA0
 # MTMxMDAwMDBaFw0yODAxMjgxMjAwMDBaMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQK
@@ -154,25 +155,25 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function Set-VirtualMachineV
 # bnYtc2ExJzAlBgNVBAMTHkdsb2JhbFNpZ24gQ29kZVNpZ25pbmcgQ0EgLSBHMgIS
 # ESFgd9/aXcgt4FtCBtsrp6UyMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQow
 # CKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcC
-# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBQd9GHP6rEkDqZ+Tma0
-# zIN35suUUzANBgkqhkiG9w0BAQEFAASCAQCK3grnoqttAGEBI/bl4Ma7H1jcP1tG
-# mZClUDZq0QpGgWEu8SNkcsXng/wVk+W3a73D8bI+nfjUQYfnleeGK8wM5Ptwfr8Y
-# F8iXpkYVZruRT9UR8TTjKQ3zxvnk9pStQG+UJ3NZuUj/XP6pFemaPvBNaJyBuzfc
-# nFjMUhSYGo/uyhGP8JGE0nyYchT4nWtfuWmpPvEBwf7tZhfrd+5v58SCRVLJ3M0a
-# BS1iMZvswv0eV+gKFvbTmIvI21+wKxavvTvxDwhOPNpBTFoH/UcxlTambo5q7sDB
-# I3b5iYJt4Ks2BH/++WotHOg9umDoAryhB+eCbcnP6wJnVsWgl2Oh4hu9oYICojCC
+# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBSz9O8v5aedgiR1w+27
+# mo8moGbTRDANBgkqhkiG9w0BAQEFAASCAQBJrFGlyFA6Mg//6/NK5zrAgatT19np
+# QxCt3d5ZMU7r4qPsVKEGs19fI6o6G+nBn9Ba8g0CXzsYFYS+nnmxsgk3g0GyIP0e
+# WcOLuLZo7XU3KzM1ob4YQiPQAkucoima4QuFEwF8dnlYu+C995uM+wDTQ13VAHtT
+# 6oDbZfNSFLampwSMDQsZ7pN+xTyEmVupURzWlTeeC81El0bLueoyClw6lZ6h6n71
+# IC8zQ4cNpfVfGHRXQ1Dt+nSfh/fAkKMM9oNEyePl4qzRYmFc+F9YbYzwU+ikyWMJ
+# rMI6CRxEcR/xgH9vxcx91XOxdQt4ACKXXl1Rvqh80pDc/96yidxsgpGioYICojCC
 # Ap4GCSqGSIb3DQEJBjGCAo8wggKLAgEBMGgwUjELMAkGA1UEBhMCQkUxGTAXBgNV
 # BAoTEEdsb2JhbFNpZ24gbnYtc2ExKDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0
 # YW1waW5nIENBIC0gRzICEhEhQFwfDtJYiCvlTYaGuhHqRTAJBgUrDgMCGgUAoIH9
 # MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MTIw
-# MzA0MTQyMVowIwYJKoZIhvcNAQkEMRYEFDOOB9Yj30lL05pPdtnPKaH17N97MIGd
+# MzA4MjMyNFowIwYJKoZIhvcNAQkEMRYEFEpmOf3mfeTaKRWCEVt9a+/645FuMIGd
 # BgsqhkiG9w0BCRACDDGBjTCBijCBhzCBhAQUjOafUBLh0aj7OV4uMeK0K947NDsw
 # bDBWpFQwUjELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2Ex
 # KDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0YW1waW5nIENBIC0gRzICEhEhQFwf
-# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQA2N4AWwH7ia0xRPSgyvYo6
-# hW437F4331tLuXWbC4NBpIklfDS3IKuFk52ytrG5WP9bKXslaG9pkTonWNMbMhJG
-# /3u4+V1abayEZioShupnmqppNDkOIh4P+lk1rQVWvoWW2813lN8zIItVsw2psy3V
-# /vmPnIC30hP7nKLWJS+pWINb591xgu1K3HCAQeivo2/8yBFzD26kwOSJsRCH/dsI
-# SGZMw87mKr01ritIh1NaIbBnihusgyE307aOx4ht6dm92VnjPG8Kwb4cL771hj5N
-# ZiQJ0JbMcYX77koATw8qMMa+OWEom54H2yZr1Lly1+gA69TUHMgIEECFb0XzgtR5
+# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQCWp9jhbTYlkQ85C4wHzV4K
+# WwbfzCqhzvvjfP+AWC7TIAkfN1RxhI2tpp/yd1+hf+u7q69Eoaox8Ra87OVgp0H6
+# 8Vzq93pzhNUUxPiQvknSbaaYttkrAuCMERFgWFTCtCKI+idO+YMgos0YInbiyNm/
+# NqjXmbKbOvWLfTJmxBMIb4s42c4jy/2hL1wwAeN60OuwkYjdNH/kamxe73FyQZHL
+# e9Ijj53us9/FL7oICbfTO0RwFrgAKRTSgbJQCym4p0ljDHWpLvQ361h12HTsjKX5
+# UE+6DbvjXvQ0zCBccmA5ZraJGAvGcxdBT1Erp/7FMt6gPPnYEPhpWAvcojjY1NW4
 # SIG # End signature block

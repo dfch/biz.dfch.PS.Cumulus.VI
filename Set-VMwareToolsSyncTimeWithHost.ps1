@@ -7,7 +7,7 @@ Indicates whether or not the tools program will sync time with the host time.
 
 .NOTES
 
-See module manifest for required software versions and dependencies:
+See module manifest for required software versions and dependencies at:
 http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
 
 
@@ -15,10 +15,12 @@ http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
 
 Param
 (
+	# Specifies a virtual machine on which to apply the operation
 	[Parameter(Mandatory = $true, Position = 0)]
 	[ValidateNotNullOrEmpty()]
 	[VMware.VimAutomation.ViCore.Impl.V1.Inventory.VirtualMachineImpl] $VM
 	,
+	# Specifies whether to sync time on virtual machine with host or not 
 	[Parameter(Mandatory = $true, Position = 1)]
 	[ValidateNotNullOrEmpty()]
 	[Boolean] $sync
@@ -50,8 +52,8 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function Set-VMwareToolsSync
 # SIG # Begin signature block
 # MIIW3AYJKoZIhvcNAQcCoIIWzTCCFskCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU9jOuF+XR35eOIkK0qu/oEfMA
-# Cq+gghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUU+8iXT5UQtWEUnye52iHSlDp
+# CZigghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
 # VzELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExEDAOBgNV
 # BAsTB1Jvb3QgQ0ExGzAZBgNVBAMTEkdsb2JhbFNpZ24gUm9vdCBDQTAeFw0xMTA0
 # MTMxMDAwMDBaFw0yODAxMjgxMjAwMDBaMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQK
@@ -149,25 +151,25 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function Set-VMwareToolsSync
 # bnYtc2ExJzAlBgNVBAMTHkdsb2JhbFNpZ24gQ29kZVNpZ25pbmcgQ0EgLSBHMgIS
 # ESFgd9/aXcgt4FtCBtsrp6UyMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQow
 # CKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcC
-# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBSIdC85eIg1smYsjY4l
-# UENoJbItEzANBgkqhkiG9w0BAQEFAASCAQBe3weI67sDmxfwL8uHHl/VkLWZzsyZ
-# U2LtNXfRg7q92qoasR010NPB+jL3uA5UtenDIsWkuE6i9Zm3XvyWOvkPfxb2nywl
-# zQf92x94yJ3UAAgsj3/4q+MTY2VaLXHFSxjYIWzHoqAZhQIF4jVvmAEr31QMMdnI
-# svWqccEQs4mI3/IMnLnKj/Ex7FTZLfxaN/Ixbu7aiZfcdsypbE0W3wGgSmyyC95n
-# l6yuux7Jcw85Hzq34gDIRn1vL3JZBoRsLH7fnDUowMpXPGPpHTgWG6gvUj6A+R5k
-# xa5Jb/8H1ZWiuvgMfVdt7Ikt3GA430HIgZOLLAWfAqKCa1XPXQNeFSrhoYICojCC
+# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBTH0Qlv4MJXYGxdTrXG
+# VT1hcGwCYzANBgkqhkiG9w0BAQEFAASCAQB/yZAOCG1h0d65CiZ46RCzXXdO+tdV
+# f9WpeQyrl5mU6n5c4yd5x6TPmB1N/tUIk22s32glSg18YYu0MfELDfhlDPE2g8Yn
+# Ir8WD/AdbvZdzbifq1PWcwvGfUIEOzSywMLe/k3kG4ATk6CWOTi4iteC9I+tdnfT
+# buxARzPvmI1kPPsjDktn6I6s4lK1kIT20KOklDccfNP2hA6qFlM2SlZncikMCQZA
+# 2jzk8jzl/YkeTggbhvUUCMmHZ7VG2hoqg46DTtzNq3ba/QW7WrlHBQDqHqi0JtY8
+# H++hNWBgrS++BYZy+iMU8F+kQj/B9XFT5OOieIjl6dLBYHRvBynsk5CRoYICojCC
 # Ap4GCSqGSIb3DQEJBjGCAo8wggKLAgEBMGgwUjELMAkGA1UEBhMCQkUxGTAXBgNV
 # BAoTEEdsb2JhbFNpZ24gbnYtc2ExKDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0
 # YW1waW5nIENBIC0gRzICEhEhQFwfDtJYiCvlTYaGuhHqRTAJBgUrDgMCGgUAoIH9
 # MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MTIw
-# MzA0MTQyMlowIwYJKoZIhvcNAQkEMRYEFALEWJP4IM0uyEOB84wNoEQsUi63MIGd
+# MzA4MjMyNFowIwYJKoZIhvcNAQkEMRYEFJWfUGT7RVkMNHWF0PZzhHdLfVyYMIGd
 # BgsqhkiG9w0BCRACDDGBjTCBijCBhzCBhAQUjOafUBLh0aj7OV4uMeK0K947NDsw
 # bDBWpFQwUjELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2Ex
 # KDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0YW1waW5nIENBIC0gRzICEhEhQFwf
-# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQA7Ay6wwWk3stviNmqvXZN4
-# P1sDIFJ0ohTUsh/4L1TxLfshIuG+dCHbv6QcPc4GUY9KMF9sF0h1vBrFkBf7pQb1
-# AZBaWzYpknH7dunQjwW7PRLRHCgMy7AdL01mtb7hf1KNXT3QE4iq32kJKSv51hRi
-# 7u5N6d57Ey0KunbJbNxQIqas8/jfeoMikzcdz6qJv3p/7d1HJ2xuqLQ+lQ/v3uG6
-# 6nxzj8v+z+6b6OyPVQ8zqSgQQxuwzgKa9rRlFknRT0XnlbtCbe20rEDvGfwPFuO+
-# A1MUztyLrtEgTCtHiNqMhQpUOWng3a70MvgUOouGwiyeLP3K2ja2G2Z6Na2z6ZL2
+# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQCKqIPuHPNsp8g35KeYUMVT
+# OXNz3mMl6LOpGFCR3RqZ94vXDL9c3d5xACx1nkyCyM/NC2F841WBhFSzBv+8qlQr
+# nRpVu32iBsbnx5htbO4UW5g2sY9VzIfg4TDS5VovMGqbfQ4im0BwxxjnEIRzKiDE
+# tS3JExvxoGJIowM4C920hgtTEjZOYEUaw22mIhY2M/FU4TFk41zxVGr8G4W9Wyrr
+# GpIGKxckhqxb2F4WdNDh7LiFeM8Hnsd00hgWh6gLlaCOCkgHg323ceytQRb/2tX6
+# 1eUyk8pC+07OIZQK4y0AfsR39kKvb8KgzQEMmQJQ/sGeurKkeiTPYMZMJ4OjlyTk
 # SIG # End signature block

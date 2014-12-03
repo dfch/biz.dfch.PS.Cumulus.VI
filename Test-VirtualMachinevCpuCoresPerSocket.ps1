@@ -2,23 +2,25 @@ Function Test-VirtualMachinevCpuCoresPerSocket {
 <#
 .SYNOPSIS
 
-Validates the core to socket ratio of a virtual machine
+Validates the core to socket ratio for virtual machines
 
 
 .NOTES
 
-See module manifest for required software versions and dependencies:
+See module manifest for required software versions and dependencies at:
 http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
 
 
 #>		
 PARAM
 (
+	# Specifies the number of CPU cores per socket to test with
 	[Parameter(Mandatory = $true, Position = 1)]
 	[ValidateNotNullOrEmpty()]
 	[ValidateRange(1,8)]
 	[int64] $NumCoresPerSocket
 	,
+	# Specifies the number of CPU to test against
 	[Parameter(Mandatory = $true, Position = 3)]
 	[ValidateNotNullOrEmpty()]
 	[System.Int64] $NumCpu
@@ -78,8 +80,8 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function Test-VirtualMachine
 # SIG # Begin signature block
 # MIIW3AYJKoZIhvcNAQcCoIIWzTCCFskCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUpk1nbjprkQHllc6a9akiNYpE
-# vgCgghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUF98Pd4GA3p3NHz7UUEfJgyd0
+# 38+gghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
 # VzELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExEDAOBgNV
 # BAsTB1Jvb3QgQ0ExGzAZBgNVBAMTEkdsb2JhbFNpZ24gUm9vdCBDQTAeFw0xMTA0
 # MTMxMDAwMDBaFw0yODAxMjgxMjAwMDBaMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQK
@@ -177,25 +179,25 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function Test-VirtualMachine
 # bnYtc2ExJzAlBgNVBAMTHkdsb2JhbFNpZ24gQ29kZVNpZ25pbmcgQ0EgLSBHMgIS
 # ESFgd9/aXcgt4FtCBtsrp6UyMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQow
 # CKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcC
-# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBQYcbQ1vK5MLC/JidmV
-# wfAuQ/OezTANBgkqhkiG9w0BAQEFAASCAQAF2G2vypcW1ORBfaycr728J86BdtRc
-# ns3Jl70JgYssD+hMOLBia8LyFivo4huClWdR+b+8amyL3lFFYZJKXgFqb7VtVg/P
-# hK1nOsAvOxE2Mq2vW8ktNKRgUPLdkBlPNNCCN9i4MLr3J7FSY+8bC1b0ZdwR+JJg
-# rGPFd3RYHKJAEHyw8iKbJKxf/q2tjKiVmdR3R7qjCkIZHsIZ0cBeuJ+vZBNLvKwT
-# a0QrWxqHoUUnfY90XKNecmsOb7eUhERBZ2yoCUXCrM8/d33AH9FNZ077XweHTiw5
-# YUGTQgekiVeKJDRMYNaeeKFVjEvE5oGoIsLceHgMDG8FWo6vPfaMKjDEoYICojCC
+# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBSQkdTByLz3Ol3hsVK+
+# qCr0C0la8TANBgkqhkiG9w0BAQEFAASCAQBP5y6XlkxASczAzGzK+sv5UCxqntAa
+# EvbZ9G37N36yttUbQhLZz1rP9d3K0VeFrVeOvzrDlT1C9AZHVH/J32iO+BVYyBOW
+# bKYAiwvr1Igwb9HFGFwnJ9YKHbbseAN4L973XQve498P4n4YAyHZgXQedJYWTVLe
+# 0NpHjHLjdP0HpVmWHGtT1g1J0otxFA+Bg+EzdpQwCnE4m2BZVwTEN5ycIYBQt0Oz
+# vuGN4LRqeCIg0DV/cE5Ac3GBi3xDGqQPMpBKK/dI1+eP8O3QzIjUWH5/gsi9lX51
+# 2wWa/q/0VWXZIK8C7oWecnGlqafeDNETTLxFTi6kK9wfUgy1G6xFeBSZoYICojCC
 # Ap4GCSqGSIb3DQEJBjGCAo8wggKLAgEBMGgwUjELMAkGA1UEBhMCQkUxGTAXBgNV
 # BAoTEEdsb2JhbFNpZ24gbnYtc2ExKDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0
 # YW1waW5nIENBIC0gRzICEhEhQFwfDtJYiCvlTYaGuhHqRTAJBgUrDgMCGgUAoIH9
 # MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MTIw
-# MzA0MTQyM1owIwYJKoZIhvcNAQkEMRYEFGFEzpipYr11TKurTlEPspdVYE6OMIGd
+# MzA4MjMyNVowIwYJKoZIhvcNAQkEMRYEFPsZ1KcjqgLevhKXuJfQMM8MrxDVMIGd
 # BgsqhkiG9w0BCRACDDGBjTCBijCBhzCBhAQUjOafUBLh0aj7OV4uMeK0K947NDsw
 # bDBWpFQwUjELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2Ex
 # KDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0YW1waW5nIENBIC0gRzICEhEhQFwf
-# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQCIdwlGJbug9bUdYFYl1fB9
-# oyBa0K8DGJyNXxtzr1GLH8ndiqyq/Lfp3/qX23O+FW8yBm3Bo4x4D8UzRwxWkU7M
-# th9WMW51kH/QfKrpvBVat2++e8ks0pr3z0N5ie22Euhe3pvMlKOSaxNQ06vCc5/6
-# J51I/XyGdO/0uo5faYib2TO7941wxnzjDs3c19MTh45pIaHSH4Cwm8XQHE4vtHSP
-# OPoQIsudBeEZ7RZfiSqiPQuPtj+ycwmWX0eLBT6OY0oFML1CPC0VPpyus1bjrkSV
-# xVWouRubWDmEOxSZCrX3kVs1XLnsCVw7MzSgw67eCrcAT8STENgcbqOu0CjOPYRI
+# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQAn82fQ5g+BF4LJ8uyb/2it
+# cv+hgKG7lJ9lId8jW0fhI7ZsGgbygRHr7lIMzBB2tGxaf/QsTbWZgjX7qtc8BnkV
+# YMuTr6fwJkIUaUaAIBDjtcpL5WFsDkHmxwd5uw7n541W+Ugh2cZ9ilojSNIlqYLc
+# vN0teONdG2NVejJConQhDxF0SA6SD4Dk8bCiFM7hq5DHtwqhma7THXEg5OmEApF3
+# aio6HD91lbvLDKGiXNi/YluII8K9St+T8fIc33SVDzFP8Aezr096vl95wy8ZFDTQ
+# q8j6Gi3TAvmc2WtHMrAjDXwpT50Ms3CrGQyNAfAWubDKsR63EkcOXgSGEmHIw8EG
 # SIG # End signature block
