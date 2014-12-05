@@ -27,7 +27,7 @@ param
 	,
 	[Parameter(Mandatory = $false, Position = 1)]
 	[ValidateNotNullOrEmpty()]
-	[System.Management.Automation.PSCredential] $vCenterCred
+	[System.Management.Automation.PSCredential] $CredentialVi
 	,
 	[Parameter(Mandatory = $true, Position = 2)]
 	[ValidateNotNullOrEmpty()]
@@ -118,7 +118,7 @@ param
 		#Verify vCenter Connections
 		if( $null -ne $vCenterNames)
 		{
-			if( $vCenterCred) { Set-vCenterConnections -vCenterNames $vCenterNames -vCenterCred $vCenterCred } else { Set-vCenterConnections -vCenterNames $vCenterNames } 
+			if( $CredentialVi) { Set-vCenterConnections -vCenterNames $vCenterNames -vCenterCred $CredentialVi } else { Set-vCenterConnections -vCenterNames $vCenterNames } 
 		}
 		#set Programm paths
 		#################

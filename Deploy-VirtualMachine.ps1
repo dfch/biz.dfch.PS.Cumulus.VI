@@ -105,12 +105,11 @@ PARAM
 		{
 			Log-Debug -fn $fn -msg ( "ResourcePoolName provided - Check if Resource Pool: {2} exists in cluster: {1}" -f $Name, $ClusterName, $ResourcePoolName );
 			$RP = Get-Cluster -Name $ClusterName | Get-ResourcePool -name $ResourcePoolName -ea SilentlyContinue; 
-			if(($null -eq $RP) -or ('ResourcePoolImpl' -ne $RP.getType().name)){
+			if(($null -eq $RP) -or ('ResourcePoolImpl' -ne $RP.getType().name))
+			{
 				$e = New-CustomErrorRecord -m ( 'Failed to retrieve ResourcePool object: {0}' -f $ResourcePoolName )
 				throw($gotoError);
 			}
-			
-        		
 		} 
 		else 
 		{
@@ -160,7 +159,7 @@ PARAM
 		if( ($null -eq $VM) -or ('VirtualMachineImpl' -ne $VM.getType().name))
 		{
 			$e = New-CustomErrorRecord -m "Failed to find the created VM."
-			 throw($gotoError);
+			throw($gotoError);
 		}
 		
 		#Temp remove disk/nick, since base vm cannot be created without, but cannot be created with all possible parameters
@@ -184,7 +183,8 @@ PARAM
 		#Create Diskconfig
 		#Get first disk info:
 		if( ($null -ne $diskConfigs) -and (0 -lt $diskConfigs.count) )
-		{	Log-Debug -fn $fn -msg ( "Create Diskconfig on VM: {0}" -f $Name )
+		{	
+			Log-Debug -fn $fn -msg ( "Create Diskconfig on VM: {0}" -f $Name )
 			$res = Set-VMDiskConfig -VMName $VM.Name -DiskConfigs $diskConfigs
 			if( $null -eq $res )
 			{
@@ -251,7 +251,6 @@ PARAM
 				throw($gotoFailure);
 			}
 		}
-
 		
 		#return refreshed object
 		return ( $VM = Get-VM -name $VM.Name )

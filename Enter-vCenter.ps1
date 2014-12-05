@@ -27,10 +27,10 @@ PARAM
 	$InputObject
 	,
 	# Specifies the credential set to make the connection to the vCenter
-	[Parameter(Mandatory = $false, ParameterSetName = 'cred')]
+	[Parameter(Mandatory = $false, Position = 1, ParameterSetName = 'cred')]
 	[ValidateNotNullOrEmpty()]
 	[Alias('vCenterCred')]
-	[System.Management.Automation.PSCredential] $Credential
+	[PSCredential] $Credential
 )
 BEGIN
 {
