@@ -12,7 +12,7 @@
 RootModule = 'biz.dfch.PS.Cumulus.VI.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.1.20141205'
+ModuleVersion = '1.0.2.20150114'
 
 # ID used to uniquely identify this module
 GUID = 'bc505fdc-a33b-4c65-b6cf-a81c5a763edb'
@@ -157,11 +157,27 @@ HelpInfoURI = 'http://dfch.biz/biz/dfch/PS/Cumulus/VI/'
 }
 
 
+# 
+# Copyright 2014-2015 Ronald Rink, d-fens GmbH
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# 
+
 # SIG # Begin signature block
 # MIIW3AYJKoZIhvcNAQcCoIIWzTCCFskCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUlMiXqf0fizAZqkQMSEyETz5h
-# f32gghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUkSgN4HHrLn02S8zxf8V//ESd
+# 3WCgghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
 # VzELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExEDAOBgNV
 # BAsTB1Jvb3QgQ0ExGzAZBgNVBAMTEkdsb2JhbFNpZ24gUm9vdCBDQTAeFw0xMTA0
 # MTMxMDAwMDBaFw0yODAxMjgxMjAwMDBaMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQK
@@ -259,25 +275,25 @@ HelpInfoURI = 'http://dfch.biz/biz/dfch/PS/Cumulus/VI/'
 # bnYtc2ExJzAlBgNVBAMTHkdsb2JhbFNpZ24gQ29kZVNpZ25pbmcgQ0EgLSBHMgIS
 # ESFgd9/aXcgt4FtCBtsrp6UyMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQow
 # CKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcC
-# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBQf92nj1p/J+EaSRbxN
-# Ya+1Ju8OWzANBgkqhkiG9w0BAQEFAASCAQC2C9GlCQY/9fh4XaPKiRG55XPbgfjQ
-# dW92RpUQjeWxgHxSXV1bB6gQJEhk+F3rj3ul4bSQVThvQWrzIf2EnJyHGEomQFyK
-# DaxdxJyg5xGCd6RuHld0vXQPboWGx8OVQ3tkxenq04PNRwI5G6DQVhXXbHyT5399
-# lsvTeNqzosNRO+SvE7a5rOo2CyUwkDcGuhMauMik8s0+gNr/q/L0nSd2rRSbo4GG
-# 4OBmOsLi8fjXEbAF27gw8gQf54CP0E2zR+Sp5fs3Rjk2BJEfLrYRVDRE/e5Gf4au
-# +Gs1C/EniQhSxjfjp8UKtKG2vYopSh6lWwjAAh89Yyi3906ws1+m4MhboYICojCC
+# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBSE4sOKXphC1+u01Zt2
+# VC/V8kqtIzANBgkqhkiG9w0BAQEFAASCAQCXdyLTW9uULTN2jypIZ5Kb9Q0ALLFC
+# GPgD1sVLmM7la35Gv7VhRefsuNIszBvwk8HwKQNYfFMLiyWnXtHjG9tsTnPhpE/2
+# U+HGN2VwIb2nEfjq0qN/iS5UITwG9KmIALbiji3gOk4Lqe+F1tpoYR2VgQybWaTl
+# 68spDhp692ZD2VLcgTp4n1QbOgXwaknAGeHlseO/b8CHBjTKZxqrDv1nFfHwudsX
+# 1lhqzbGtkGOiTeoTfSayVvb9W/4NgQ8jRW3p2DIuxwuevfRstt6AduVV4Kc9rcJ5
+# FU/uvbSfFV5k8n4RhusjfsB3XViRz1KrHEhuXlJa3KhfAQPCR1kG4AFWoYICojCC
 # Ap4GCSqGSIb3DQEJBjGCAo8wggKLAgEBMGgwUjELMAkGA1UEBhMCQkUxGTAXBgNV
 # BAoTEEdsb2JhbFNpZ24gbnYtc2ExKDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0
 # YW1waW5nIENBIC0gRzICEhEhQFwfDtJYiCvlTYaGuhHqRTAJBgUrDgMCGgUAoIH9
-# MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MTIw
-# NTA5NTQzOVowIwYJKoZIhvcNAQkEMRYEFIv9KKgpsysiz5v2XBWvyD2qFhFYMIGd
+# MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE1MDEx
+# NDA2NTc0NFowIwYJKoZIhvcNAQkEMRYEFGu7Ky3KQYvZtD7Oa33JGd/rhHljMIGd
 # BgsqhkiG9w0BCRACDDGBjTCBijCBhzCBhAQUjOafUBLh0aj7OV4uMeK0K947NDsw
 # bDBWpFQwUjELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2Ex
 # KDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0YW1waW5nIENBIC0gRzICEhEhQFwf
-# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQBzB8S7bqyslfDZMiftxyi9
-# 3UyFo+X33K5HyCp8HoeiiWAqRcDIhga5LurKFcaNas2voSbnOnHRPPKDhvqW3BCb
-# Qpxk4aocfHN6N5ydayruFa7/xczfEoOxPvNM7b5nyaCZcn9S0qPsJogCkXMF5xZZ
-# heJYpKUMUdceFKxeZPW1DzrArdbjo+FaeTO3UO1RF85Ww22JeQXeVuwRdTCWZ8Sb
-# tYC+1WWPbJVJp56YG1K20b2F0scr6BxZ/YjAJijtDK9EPsEjeZKoj3UwFYqBGBIS
-# hQ4+ow6+MyCwhdtcs3Q5qpiYmv9MtibJN8G1B4bSryJnWmSaBFzog7s3yqZl2u62
+# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQAT8KpSxE47cSw80MlOx07v
+# r0GgYEJ4nnzCLI0fDi9SeDmXHESSlY7gZQrJTu8wuBXFLRGngg+A8XLbyf8l/E+M
+# C/hUqI94egk2fuo4L05AVBuEVokwBCQ//GSvJHLH5uSsrwsrsSl6oN7dUJ1R3K8c
+# gik8FP5yBuw/AZifQevcunPeKfCVo5mkBG9pj8jYOfY/w93uRd1GDWucFQrh7Bkt
+# bavFs/RtgfTA4/L20qxag3omXftbfk7QVX+DIRQcvF54CpZ+/YvJPZM/DzymrrQi
+# Hh558PPYrPnINUuflAwN8dqNHgE63T6CspJL0l3WvplVfl2tIvm8tM2NydvnxYZ5
 # SIG # End signature block

@@ -12,11 +12,27 @@
 $PSSnapinName = 'VMware.VimAutomation.Core';
 Add-PSSnapin $PSSnapinName -ErrorAction:Stop;
 
+# 
+# Copyright 2014-2015 Ronald Rink, d-fens GmbH
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# 
+
 # SIG # Begin signature block
 # MIIW3AYJKoZIhvcNAQcCoIIWzTCCFskCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUIy7IeWAcK4b1j26qizuVwg1s
-# Uu6gghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUL3wVPSZ9WJPpI9RaZezlHIeV
+# LP+gghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
 # VzELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExEDAOBgNV
 # BAsTB1Jvb3QgQ0ExGzAZBgNVBAMTEkdsb2JhbFNpZ24gUm9vdCBDQTAeFw0xMTA0
 # MTMxMDAwMDBaFw0yODAxMjgxMjAwMDBaMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQK
@@ -114,25 +130,25 @@ Add-PSSnapin $PSSnapinName -ErrorAction:Stop;
 # bnYtc2ExJzAlBgNVBAMTHkdsb2JhbFNpZ24gQ29kZVNpZ25pbmcgQ0EgLSBHMgIS
 # ESFgd9/aXcgt4FtCBtsrp6UyMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQow
 # CKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcC
-# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBTQFbX+AqJLvwfAUeBI
-# yugd8a82NzANBgkqhkiG9w0BAQEFAASCAQAasmzE96E87XMcecOKVag/kDLDQumk
-# e/M4Y/6FHaWwC3ybJORvx+IP7sBVjc5CRZGPa7fUs6Yp9+SRGueo2BcWZrVMN1Bl
-# TGLRan/8U2h3jhcjJbxXiL6Ipng4lYKCB6cqgLiIOcsP8EzevJe1yZ/lA453Cwz1
-# fRf0VSXjpS/ebvHpTDdmumb2fVqdBjUbjNpqJjPOd+sW72uSsryRPUZc9f8/FzH5
-# RzbaNGZStWF/ZYgcInF/KU5SeolbbcU8znF6J9BqB8/ipQMrzBIfxnPwTtYZ1j6d
-# dn+/3vJCAQjJJGrJaJcprvGHO4ac6IFiI7Hz/4mdb/X5eq/n8LeUKY+yoYICojCC
+# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBRENfdKiSYnxx00vobd
+# faMpPcWHPjANBgkqhkiG9w0BAQEFAASCAQA+J2FwHgfFmPy6WIrboVbdvLDji/K8
+# xrF0SrLRj7tdqaaCcsAR8LwcqKrAM8L4GldqN4U8xfWvTNJw7vgUW0MbEVb8aPH4
+# joQ39ywPzz9p2NXs+OCvBXg0SRnAVNvriZdxEX9ym0D8cWCq/V0yuWYs8zPYOjeG
+# mUpScnlqeldh3ggmzc76Oz7FbHGu8Py/Gc6rogoB8UOFEsdX4AZNU0JUohHf4c4l
+# wCyoEOKcOLB/g7a0iTgrp1kp1fI3Td1Wxl4i5CKHPW8KOOS78Lc2S72J08JJTV4Q
+# orb9Uo3dtpfrKGjgD7rpbKOAF+UYzcYfhwb+GRgsBfvcoCdPmOx2yCgwoYICojCC
 # Ap4GCSqGSIb3DQEJBjGCAo8wggKLAgEBMGgwUjELMAkGA1UEBhMCQkUxGTAXBgNV
 # BAoTEEdsb2JhbFNpZ24gbnYtc2ExKDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0
 # YW1waW5nIENBIC0gRzICEhEhQFwfDtJYiCvlTYaGuhHqRTAJBgUrDgMCGgUAoIH9
-# MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MTIw
-# MzA0MzEwNVowIwYJKoZIhvcNAQkEMRYEFGdlMX8tGgycAUMsAMoWRU6rk/IeMIGd
+# MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE1MDEx
+# NDA2NTcwNlowIwYJKoZIhvcNAQkEMRYEFMmesOubXJ/HOX98ejBrXuuxQ1UiMIGd
 # BgsqhkiG9w0BCRACDDGBjTCBijCBhzCBhAQUjOafUBLh0aj7OV4uMeK0K947NDsw
 # bDBWpFQwUjELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2Ex
 # KDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0YW1waW5nIENBIC0gRzICEhEhQFwf
-# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQBsyrB+cwtHBcOEL436Mq+K
-# aXNtiB1rXHyLSh3LuCMBkCaeB6iSycnCferW4o2JbNzBj2vq8M2qEClUzJ/MQt/f
-# LO/bPQq7UPsgowQpvHtUdVKuPPtlsicFrj+BVjPUC2JGYXNcI9r1BlyVR4zrnHnO
-# eg7pPmW3i89EvlN/cj61MMOGgEIFuTdFqJtf+CaAkmOoPnxBbTXQtrsrEx3+lvvM
-# xHmZUyNxv60REpqtuEsofYZ32pycPKzDrmpqzrXYJ+pjBSDfIMO5K5zRuBpmaxQl
-# VqNoHTuOZcLm1epg6TxtIKJcA6z93366zZJlbeEbpp8bR6U/LvOboXRC8bDdESfb
+# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQBw6LPALnnm0KCQ0XVnKDFV
+# 2eIz0qOZd/HeATutCdoRmmJQw7PuhDTUg02X9CHsa/ftGTHc50XS/ID5EURvTWRe
+# vjx3FIzBZVWG37YhW2KSsL/melBKxIDQEBAhw3KLR724Qt47tQTrTzpuZK7L2sMc
+# dJ7+OMD4ez3LoZLWDKTlpisDEPFvgClvUxzFOGXRyDHVhZDD5kpKL/Kj0ge8/HYj
+# g9JC9YjONY1B3BNClUVnhu5cAITDydn8mzQloBo9i6yDBor691Gz7jXU+CRqj7fI
+# kOZWcneL/ldjayCe7OGOE5no4lnTlg7BdpH33rijX5o3d2wXXasF14V6PIFApeCd
 # SIG # End signature block

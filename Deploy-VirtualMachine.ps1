@@ -265,11 +265,43 @@ PARAM
 if($MyInvocation.ScriptName) { Export-ModuleMember -Function Deploy-VirtualMachine; } 
 
 
+# 
+# Copyright 2014-2015 Ronald Rink, d-fens GmbH
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# 
+
+# 
+# Copyright 2014-2015 Ronald Rink, d-fens GmbH
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# 
+
 # SIG # Begin signature block
 # MIIW3AYJKoZIhvcNAQcCoIIWzTCCFskCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUa84127RYI7imv7ubwNM8/8Zk
-# OJagghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUuat9s0Xdnjd/Srm/IV+lSkxb
+# etSgghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
 # VzELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExEDAOBgNV
 # BAsTB1Jvb3QgQ0ExGzAZBgNVBAMTEkdsb2JhbFNpZ24gUm9vdCBDQTAeFw0xMTA0
 # MTMxMDAwMDBaFw0yODAxMjgxMjAwMDBaMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQK
@@ -367,25 +399,25 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function Deploy-VirtualMachi
 # bnYtc2ExJzAlBgNVBAMTHkdsb2JhbFNpZ24gQ29kZVNpZ25pbmcgQ0EgLSBHMgIS
 # ESFgd9/aXcgt4FtCBtsrp6UyMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQow
 # CKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcC
-# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBRavZjqeMh7Azq3fK4W
-# rP0fo75ZjjANBgkqhkiG9w0BAQEFAASCAQA1H4Qd921MdrqttPW145Iv8npXKSJO
-# CcnECf1cRkzafMDZ9hhjz4p6uxRrvvNHUfdlKy7n7QCabTg4rH5eTu3xSaDXJ6Q2
-# QXRk8CPG2UpJcWZ/uRVN9FiT5CSZLQQzK0SGOcYLBOnpavqbMzlnNEI6zcMBja7l
-# R8yd53Dx4CRemknRW6d+WsDswinQ+jXaACYNMoPHKyh5W+Fgc0bjyjYoqMaBqGzc
-# +g4OcuzEftQX2GQRSekqiKCPQLtqwr6kK3p9uajbHcix0Yi+MexoMuuYc9pToND/
-# 19RaOzcZ4pFO0rM5vAFNqU/Kf1SKNPlzL2Zbrbizc6NgNfGhSoDqTB5ioYICojCC
+# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBRfAiN+m3uUd+fYiFsi
+# wVVYJKYY1DANBgkqhkiG9w0BAQEFAASCAQCeK62tPAArgcTDVYHGAotBABVW7isl
+# PVekFT3V+5ZhwYOSB3sS2mbMRQutowcKCNLfeXiUZu20tryrQ7CjBpyyj/58Iv3o
+# YsWdytqrtyJ7hju+MvwbISYBT/F4qNa7NODee53JmSL7aF0GNKCeZ61sh8dd1ReG
+# qtqsFsJICZSPSsW3067q43D/bvA5lFHVJZjH7ThFydsJsTeFU8WplfOWMgQATuET
+# kWG9OMgjW2cHbSI019fRmnzJwfI6m1Pru8wLxkHu71AKq0Mo4hKafjcBMTlyIaAA
+# R9+rggI+/4kabHXBnE5tJNa+rN4qItcX2VsLBN+aAmi9CF5gOT6fFeekoYICojCC
 # Ap4GCSqGSIb3DQEJBjGCAo8wggKLAgEBMGgwUjELMAkGA1UEBhMCQkUxGTAXBgNV
 # BAoTEEdsb2JhbFNpZ24gbnYtc2ExKDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0
 # YW1waW5nIENBIC0gRzICEhEhQFwfDtJYiCvlTYaGuhHqRTAJBgUrDgMCGgUAoIH9
-# MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MTIw
-# NTA4MTQyMlowIwYJKoZIhvcNAQkEMRYEFC8vgCIJ7k0azG36feNw86Nuv4dNMIGd
+# MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE1MDEx
+# NDA2NTcwNVowIwYJKoZIhvcNAQkEMRYEFHaNszPFpejOgmU1Z3vOPM9pzZzTMIGd
 # BgsqhkiG9w0BCRACDDGBjTCBijCBhzCBhAQUjOafUBLh0aj7OV4uMeK0K947NDsw
 # bDBWpFQwUjELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2Ex
 # KDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0YW1waW5nIENBIC0gRzICEhEhQFwf
-# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQA9WqbkLOyynJGtv012jFNH
-# BWSCQRDq4BGBa/t/J6fBKwyrilVM6Nmtlw5JFMv3R66STtNTOMujuUdu7i853ATs
-# 11bYfAU3L6VNHAnTTnjk98Kfq/Mvo9KxiZNEv0r09oZ19a0q8n19XXiL0heDry2L
-# MiNKmwaFui0s3rBbffIc/EYsJ3UCCChvhK/oltCv2NjV/mqGUfI4Zy3elHxSmS/5
-# +QvFoJWa6BPns0phCQWjMxJQf6pyXkjKiSkCJX5Luy9Hp5vSxqmvs7XlOuwWoWJA
-# T+umk2YQzQeZANIhdyVhUKuji9JfpJ4USaRRz5G4p29gEXn07+Ub2mJ3yGhSOJ6b
+# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQClDefSEnU3OBVamQe0vp9a
+# ePSBcflRTduqlg01e0JLXXGxVzvqxeoEZee5Km2YLSB/uOjwGRUr5IanBlQBVWiE
+# uT11fL0yaboSMkGZtuqvUHL2smYNC3BaablLSM8dLo1uAIfIbbDPknt/hLQf6qMn
+# FckvARunsOe9DB8frFcghPNTiul05cPCJJwKst0QOKcBBq7q9L1HnGCZ0gEec5F6
+# TMwYKvVAeHxBQr/ktl1uHdSJukTRPobhbYQKSVtwnCm1DvM1d4Db+3hmyWZGQwzi
+# JvK0PhMmX8Yo32979a25m9sLw1PoKVaFaGYHt/QZPjnEnPWUiOz4/MCSPBUPeqQU
 # SIG # End signature block

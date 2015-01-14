@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>biz.dfch.PS.Cumulus.VI</id>
+    <version>1.0.2</version>
+    <title>biz.dfch.PS.Cumulus.VI</title>
+    <authors>d-fens GmbH</authors>
+    <owners>Ronald Rink</owners>
+    <licenseUrl>https://github.com/dfch/biz.dfch.PS.Cumulus.VI/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/dfch/biz.dfch.PS.Cumulus.VI</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/dfch/fragments/master/logo-32x32.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>biz.dfch.PS.Cumulus.VI
+======================
+
+Module: biz.dfch.PS.Cumulus.VI
+
+d-fens GmbH, General-Guisan-Strasse 6, CH-6300 Zug, Switzerland
+
+This Microsoft PowerShell module contains Cmdlets to perform various base actions and utility/convenience functions with VMware vCenter and PowerCLI in conjunction with the our open-source based automation framework "Cumulus".
+
+You can also download this module via [NuGet](http://nuget.org) with [Install-Package biz.dfch.PS.Cumulus.VI](https://www.nuget.org/packages/biz.dfch.PS.Cumulus.VI/)
+
+VMware PowerCLI and other external DLLs are not part of this Apache 2.0 licensed project. You have to download them separately.
+
+See the [d-fens web site](http://d-fens.ch/2014/11/28/module-biz-dfch-ps-cumulus-vi/) and the [Wiki](https://github.com/dfch/biz.dfch.PS.Cumulus.VI/wiki) for a detailed description on how to use the Cmdlets in this module.
+</description>
+    <summary>This Microsoft PowerShell module contains Cmdlets to perform various base actions and utility/convenience functions with VMware vCenter and PowerCLI in conjunction with the our open-source based automation framework "Cumulus".</summary>
+    <releaseNotes>20150114</releaseNotes>
+    <copyright>(c) 2014 d-fens GmbH</copyright>
+    <language>en-US</language>
+    <tags>PowerShell dfch PowerCLI VMware vCenter</tags>
+    <dependencies>
+      <dependency id="biz.dfch.PS.System.Logging" version="1.0.3" />
+      <dependency id="biz.dfch.PS.System.Utilities" version="1.0.2" />
+      <dependency id="biz.dfch.PS.Cumulus.Utilities" version="1.0.0" />
+    </dependencies>
+  </metadata>
+  <files xmlns="">
+    <file src="biz.dfch.PS.Cumulus.VI.psm1" target="biz.dfch.PS.Cumulus.VI.psm1" />
+    <file src="biz.dfch.PS.Cumulus.VI.psd1" target="biz.dfch.PS.Cumulus.VI.psd1" />
+    <file src="biz.dfch.PS.Cumulus.VI.xml" target="biz.dfch.PS.Cumulus.VI.xml" />
+    <file src="Decommission-VirtualMachine.ps1" target="Decommission-VirtualMachine.ps1" />
+    <file src="Deploy-VirtualMachine.ps1" target="Deploy-VirtualMachine.ps1" />
+    <file src="Enter-vCenter.ps1" target="Enter-vCenter.ps1" />
+    <file src="New-VirtualMachineFloppyImage.ps1" target="New-VirtualMachineFloppyImage.ps1" />
+    <file src="Get-DestinationHost.ps1" target="Get-DestinationHost.ps1" />
+    <file src="Import-Module.ps1" target="Import-Module.ps1" />
+    <file src="Mount-VirtualMachineCDImage.ps1" target="Mount-VirtualMachineCDImage.ps1" />
+    <file src="New-VirtualMachineDiskConfiguration.ps1" target="New-VirtualMachineDiskConfiguration.ps1" />
+    <file src="New-VirtualMachineFolderStructure.ps1" target="New-VirtualMachineFolderStructure.ps1" />
+    <file src="New-VirtualMachineNetworkConfiguration.ps1" target="New-VirtualMachineNetworkConfiguration.ps1" />
+    <file src="Set-VirtualMachineBootFromCD.ps1" target="Set-VirtualMachineBootFromCD.ps1" />
+    <file src="Set-VirtualMachineDiskConfiguration.ps1" target="Set-VirtualMachineDiskConfiguration.ps1" />
+    <file src="Set-VirtualMachineFloppyDrive.ps1" target="Set-VirtualMachineFloppyDrive.ps1" />
+    <file src="Set-VirtualMachineMemoryHotAdd.ps1" target="Set-VirtualMachineMemoryHotAdd.ps1" />
+    <file src="Set-VirtualMachineNetworkConfiguration.ps1" target="Set-VirtualMachineNetworkConfiguration.ps1" />
+    <file src="Set-VirtualMachinevCpuCoresPerSocket.ps1" target="Set-VirtualMachinevCpuCoresPerSocket.ps1" />
+    <file src="Set-VirtualMachinevCpuHotAdd.ps1" target="Set-VirtualMachinevCpuHotAdd.ps1" />
+    <file src="Set-VirtualMachineVideoMemory.ps1" target="Set-VirtualMachineVideoMemory.ps1" />
+    <file src="Set-VMwareToolsSyncTimeWithHost.ps1" target="Set-VMwareToolsSyncTimeWithHost.ps1" />
+    <file src="Set-VMwareToolsUpgradePolicy.ps1" target="Set-VMwareToolsUpgradePolicy.ps1" />
+    <file src="Test-VirtualMachinevCpuCoresPerSocket.ps1" target="Test-VirtualMachinevCpuCoresPerSocket.ps1" />
+    <file src="Wait-VILegacyTask.ps1" target="Wait-VILegacyTask.ps1" />
+  </files>
+</package>
