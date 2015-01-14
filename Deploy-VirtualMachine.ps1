@@ -83,7 +83,6 @@ PARAM
 	
 	try
 	{
-	
 		$datBegin = [datetime]::Now;
 		[string] $fn = $MyInvocation.MyCommand.Name;
 		Log-Debug -fn $fn -msg ("CALL")
@@ -113,8 +112,6 @@ PARAM
 		} 
 		else 
 		{
-			
-			
 			Log-Debug -fn $fn -msg ( "No ResourcePoolName provided - Cluster: {1} will be the target resource Pool: {0}" -f $Name, $ClusterName );
 			$RP = Get-Cluster -Name $ClusterName -ea SilentlyContinue;
 			if(($null -eq $RP) -or ('ClusterImpl' -ne $RP.getType().name))
@@ -257,7 +254,7 @@ PARAM
 	}
 	catch
 	{
-		Log-Error -fn $fn -msg  ("Error occurred during VM Video Memory Size {0} " -f $_.Exception.Message )
+		Log-Error -fn $fn -msg  ("Error occurred while setting parameters for VM. Exception Message: '{0}'" -f $_.Exception.Message )
 		return $null;
 	}
 } # function
@@ -300,8 +297,8 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function Deploy-VirtualMachi
 # SIG # Begin signature block
 # MIIW3AYJKoZIhvcNAQcCoIIWzTCCFskCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUuat9s0Xdnjd/Srm/IV+lSkxb
-# etSgghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU8sD3cP8QKuufdbdICkm3R3oD
+# /uigghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
 # VzELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExEDAOBgNV
 # BAsTB1Jvb3QgQ0ExGzAZBgNVBAMTEkdsb2JhbFNpZ24gUm9vdCBDQTAeFw0xMTA0
 # MTMxMDAwMDBaFw0yODAxMjgxMjAwMDBaMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQK
@@ -399,25 +396,25 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function Deploy-VirtualMachi
 # bnYtc2ExJzAlBgNVBAMTHkdsb2JhbFNpZ24gQ29kZVNpZ25pbmcgQ0EgLSBHMgIS
 # ESFgd9/aXcgt4FtCBtsrp6UyMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQow
 # CKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcC
-# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBRfAiN+m3uUd+fYiFsi
-# wVVYJKYY1DANBgkqhkiG9w0BAQEFAASCAQCeK62tPAArgcTDVYHGAotBABVW7isl
-# PVekFT3V+5ZhwYOSB3sS2mbMRQutowcKCNLfeXiUZu20tryrQ7CjBpyyj/58Iv3o
-# YsWdytqrtyJ7hju+MvwbISYBT/F4qNa7NODee53JmSL7aF0GNKCeZ61sh8dd1ReG
-# qtqsFsJICZSPSsW3067q43D/bvA5lFHVJZjH7ThFydsJsTeFU8WplfOWMgQATuET
-# kWG9OMgjW2cHbSI019fRmnzJwfI6m1Pru8wLxkHu71AKq0Mo4hKafjcBMTlyIaAA
-# R9+rggI+/4kabHXBnE5tJNa+rN4qItcX2VsLBN+aAmi9CF5gOT6fFeekoYICojCC
+# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBS3MAPAIsMQbn1NvDZV
+# S4gkUXxoiTANBgkqhkiG9w0BAQEFAASCAQBmGqSYAL0CoQIODR3VQXqKcxFcJQpQ
+# 2IKS/bl/HroEx0p69NXjW+GC1tDmiqUa1QARvRjZO+bz4TtS8aB35COo6tqYOvVI
+# pb/z+z4MjVNCFCi3bTsZvSULQz1fZYVmklGMePGwqcRzuuFO7+XL2DXB9GO2Fnba
+# oXXfrWmExfou0XrA8J494REovs73iDBP6BKvG+w1nnuYHTnqaWrn//e/3bIHn/dI
+# AMTij6mIwpG0MlQrihKMxxTRsqtFA3bsbb4J8CNv9TGkwhotjHRuuzrrH9A1BXgU
+# eZPbBuPTwesvvo6O+YXcL6bIZDmWUjvyITQEDz2zNS+NBZRA8aZCLeeroYICojCC
 # Ap4GCSqGSIb3DQEJBjGCAo8wggKLAgEBMGgwUjELMAkGA1UEBhMCQkUxGTAXBgNV
 # BAoTEEdsb2JhbFNpZ24gbnYtc2ExKDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0
 # YW1waW5nIENBIC0gRzICEhEhQFwfDtJYiCvlTYaGuhHqRTAJBgUrDgMCGgUAoIH9
 # MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE1MDEx
-# NDA2NTcwNVowIwYJKoZIhvcNAQkEMRYEFHaNszPFpejOgmU1Z3vOPM9pzZzTMIGd
+# NDIwMDU1NlowIwYJKoZIhvcNAQkEMRYEFP+XB2F/fIAD3ysgbtrWNF+WevC4MIGd
 # BgsqhkiG9w0BCRACDDGBjTCBijCBhzCBhAQUjOafUBLh0aj7OV4uMeK0K947NDsw
 # bDBWpFQwUjELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2Ex
 # KDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0YW1waW5nIENBIC0gRzICEhEhQFwf
-# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQClDefSEnU3OBVamQe0vp9a
-# ePSBcflRTduqlg01e0JLXXGxVzvqxeoEZee5Km2YLSB/uOjwGRUr5IanBlQBVWiE
-# uT11fL0yaboSMkGZtuqvUHL2smYNC3BaablLSM8dLo1uAIfIbbDPknt/hLQf6qMn
-# FckvARunsOe9DB8frFcghPNTiul05cPCJJwKst0QOKcBBq7q9L1HnGCZ0gEec5F6
-# TMwYKvVAeHxBQr/ktl1uHdSJukTRPobhbYQKSVtwnCm1DvM1d4Db+3hmyWZGQwzi
-# JvK0PhMmX8Yo32979a25m9sLw1PoKVaFaGYHt/QZPjnEnPWUiOz4/MCSPBUPeqQU
+# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQA7z7/Ud5SpkoDKKiFNxOfJ
+# kEUlrXvfxH/mWCNoSWNJGwMW+VubXOttFZP1xhRYigvtDHATEUfVTekNbJiczPjC
+# iFg5qpbpNLuaF9lHpOBsyYsvryDNZlLDvJqbBlis/TfnGujzQrfYW5x1NtydPDJ8
+# wmvd/u1KhVWzelVt7SpXT9SuvWhlnXMSEC1e6axiShwDhw2DNJZeUpLTRnii54aQ
+# p8h3MmZEuF/rHcglMpgfI8BP9VuyhvV6wtbkFzB8xJFhWRmLWYgqVSlM+pa2NygN
+# FmcwKXkz54byYUsLn9qtpV+BG+Sbw6KRKkIEGZQKQMkupH+Po4QYJvMdAGcy710X
 # SIG # End signature block
