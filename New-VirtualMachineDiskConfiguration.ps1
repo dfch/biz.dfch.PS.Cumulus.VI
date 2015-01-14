@@ -97,39 +97,39 @@ http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
 
 Param
 (
-	[Parameter(Mandatory = $true, Position = 0)]
+	[Parameter(Mandatory = $true)]
 	[ValidateNotNullOrEmpty()]
 	[string] $DatastoreName
 	,
-	[Parameter(Mandatory = $true, Position = 1)]
+	[Parameter(Mandatory = $true)]
 	[ValidateNotNullOrEmpty()]
 	[int64] $CapacityMB
 	,
-	[Parameter(Mandatory = $true, Position = 2)]
+	[Parameter(Mandatory = $true)]
 	[ValidateNotNullOrEmpty()]
 	[ValidateSet("thin","thick")]
 	[string] $StorageFormat
 	,
-	[Parameter(Mandatory = $true, Position = 3)]
+	[Parameter(Mandatory = $true)]
 	[ValidateNotNullOrEmpty()]
 	[ValidateSet("Default","ParaVirtual", "VirtualBusLogic", "VirtualLsiLogic", "VirtualLsiLogicSAS" )]
 	[string] $ControllerType
 	,
-	[Parameter(Mandatory = $false, Position = 4)]
+	[Parameter(Mandatory = $false)]
 	[ValidateNotNullOrEmpty()]
 	[string] $UnitID
 	,
-	[Parameter(Mandatory = $false, Position = 5)]
+	[Parameter(Mandatory = $false)]
 	[ValidateNotNullOrEmpty()]
 	[ValidateSet("Flat","RawVirtual", "RawPhysical", "unknown")]
 	[string] $Type = "Flat"
 	,
-	[Parameter(Mandatory = $false, Position = 6)]
+	[Parameter(Mandatory = $false)]
 	[ValidateNotNullOrEmpty()]
 	[ValidateSet("Persistent", "IndependentNonPersistent")]
 	[string] $Persistence = "Persistent"
 	,
-	[Parameter(Mandatory = $false, Position = 7)]
+	[Parameter(Mandatory = $false)]
 	[ValidateNotNullOrEmpty()]
 	[hashtable] $AdvancedOptions
 	
@@ -182,8 +182,8 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function New-VirtualMachineD
 # SIG # Begin signature block
 # MIIW3AYJKoZIhvcNAQcCoIIWzTCCFskCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUcRauB9jhEkjpRS0zdHPGR0gI
-# rUagghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUqPZfy6BlaTPaSv56KUYnCZ2Q
+# gIugghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
 # VzELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExEDAOBgNV
 # BAsTB1Jvb3QgQ0ExGzAZBgNVBAMTEkdsb2JhbFNpZ24gUm9vdCBDQTAeFw0xMTA0
 # MTMxMDAwMDBaFw0yODAxMjgxMjAwMDBaMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQK
@@ -281,25 +281,25 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function New-VirtualMachineD
 # bnYtc2ExJzAlBgNVBAMTHkdsb2JhbFNpZ24gQ29kZVNpZ25pbmcgQ0EgLSBHMgIS
 # ESFgd9/aXcgt4FtCBtsrp6UyMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQow
 # CKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcC
-# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBQ+GuPdqrFnN1EnDjdA
-# cWDNXGzyozANBgkqhkiG9w0BAQEFAASCAQBVavnmpL6kOkMFCI+fOGbYnCLr9dzp
-# XApdr/rwR0HE2Y4jQqq1mDUT6U9whyw7ZO3i9wJv/3J9Fbe4cUJGKoDc41pLY30h
-# 9oiqW2DTKxgcImUb1N/lWAQ9qVWoFX0K9Ls567JzuYTDGVagqmYaSTAl18tOQ0ez
-# bd2pMEuTZufRRL7U+Hj6lXzYIfOxnQkKAXY0pugqtzOzSbrogZZefhk33IE3SVfW
-# EhmfMjW2eQTDM4vprr+PL7o7PqAW7CzQ0hP2AmwszkpveNO+oDcpUjRqglI4yD7a
-# ecGgjGOLv2FNYdfWrvb+nIsY/tOJUqTNXlyuuuDv4LTfHRjWEePm3kp/oYICojCC
+# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBSe2qOfyPHJPTXYK2ms
+# g9aBOJG3lDANBgkqhkiG9w0BAQEFAASCAQCI1pOUDt2bE10D+hbsJ0lNgeOTgUHU
+# c1O18LTtMIlo1+jLhNtDg1kFshvpkcCflnwXxXwju1ooKI830DfBCW9a59kX53hi
+# DJgPgbYv4fHb1VaKJOH6y0stYObyFIRnm8uHPj6AcFLlv1UownLYN7nNKUckCwyk
+# SVv/v4oVzSTlrAJmgq/zu6uDHPPPP/0Y262OdKKt7ALdo/TiuuZrLExp1Bx8nMrP
+# Cu6njnQT9XxivPr6Ai2lUqLgCvtOsgaNlHLsimN16BPxfPP/ZsYow7+hAAPWEiLm
+# 8Kwn1eakJ2v8wErnYk+hv9nlvMMlYFMn/fsRyXet0Say0kEADwh1HcdyoYICojCC
 # Ap4GCSqGSIb3DQEJBjGCAo8wggKLAgEBMGgwUjELMAkGA1UEBhMCQkUxGTAXBgNV
 # BAoTEEdsb2JhbFNpZ24gbnYtc2ExKDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0
 # YW1waW5nIENBIC0gRzICEhEhQFwfDtJYiCvlTYaGuhHqRTAJBgUrDgMCGgUAoIH9
 # MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE1MDEx
-# NDA2NTcwN1owIwYJKoZIhvcNAQkEMRYEFAriusLsJ0CINE1a3IfeIaLOSaNWMIGd
+# NDE3MTkyOFowIwYJKoZIhvcNAQkEMRYEFPG1Y8TVw9MV0Mk60AiRT+NVtYh0MIGd
 # BgsqhkiG9w0BCRACDDGBjTCBijCBhzCBhAQUjOafUBLh0aj7OV4uMeK0K947NDsw
 # bDBWpFQwUjELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2Ex
 # KDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0YW1waW5nIENBIC0gRzICEhEhQFwf
-# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQCbny7m79OQVrhKi/NWCsxc
-# jnsceLFlouNdsCEBZfSbQ7f1MrJ5FXZBb2i5e6ai+I1lKk947HP+MippfcBoms39
-# 180+jxzGnvSehYrzNCJ3wC2fXRBZvAma1+NMAwkw9bspPDAh3OUI43chXvT9Fm2g
-# bynQ592qzI4AUqRocb/WJ7ecBAFXearrfJ6CbQb+uKqsRMghueguEX0mx+/1IN9S
-# hGi6rmju++SmA9J1gwFvzFCKEJwa04lVjXQYJeT3NIGaV4XDseW85HcpuT2QBuZ3
-# GEN8R1z0/4Vj/wEV+w5VvUkdhxVdTzWzQJNwUEViLbuFuNWJJ9l5VYbefPio6TtT
+# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQAWuGkvbTrnJndWIX6j3s3r
+# qM9sotRU7FtWVSC+CEoaNinVp3jyIZmsap35jW8b80F/j1xfYTNmQ54Jn9t+ORTa
+# w1Mqpj51oqofcL28wmYU7TW9iw/OL4y+aiTifAhRwLqcMwNyax/hLXHB9EBDrmA1
+# yhZ2SRywfYaZwWICFH/ZuX1T9CET40hcRfrdrXGiZ5XeywQ53mmXgSHtENWxCo+/
+# r9FSYznb+BwQpN4Hx8vYZgIKE17cTpLD65wpnavKP40sBAp+280csYyOf5JtPonQ
+# N29IW9g0iob5i0qrJTAI1yy8B6q3o8Gswy6al9RJ3nui5ymMl4/r+baPFbiZ+ZSo
 # SIG # End signature block

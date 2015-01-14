@@ -21,57 +21,58 @@ Requires 'bfi.exe' for floppy build
 param
 (
 
-	[Parameter(Mandatory = $false, Position = 0)]
+	[Parameter(Mandatory = $false)]
 	[ValidateNotNullOrEmpty()]
 	[string[]] $vCenterNames
 	,
-	[Parameter(Mandatory = $false, Position = 1)]
+	[Parameter(Mandatory = $false)]
 	[ValidateNotNullOrEmpty()]
 	[System.Management.Automation.PSCredential] $CredentialVi
 	,
-	[Parameter(Mandatory = $true, Position = 2)]
+	[Parameter(Mandatory = $true)]
 	[ValidateNotNullOrEmpty()]
 	[string] $VMname
 	,
-	[Parameter(Mandatory = $true, Position = 3)]
+	[Parameter(Mandatory = $true)]
 	[ValidateNotNullOrEmpty()]
 	[string] $IpAddr
 	,
-	[Parameter(Mandatory = $true, Position = 4)]
+	[Parameter(Mandatory = $true)]
 	[ValidateNotNullOrEmpty()]
 	[string] $Subnet
 	,
-	[Parameter(Mandatory = $true, Position = 5)]
+	[Parameter(Mandatory = $true)]
 	[ValidateNotNullOrEmpty()]
 	[string] $Gateway
 	,
-	[Parameter(Mandatory = $true, Position = 6)]
+	[Parameter(Mandatory = $true)]
 	[ValidateNotNullOrEmpty()]
 	[string] $PrimDNS
 	,
-	[Parameter(Mandatory = $true, Position = 7)]
+	[Parameter(Mandatory = $true)]
 	[ValidateNotNullOrEmpty()]
 	[string] $SeconDNS
 	,
-	[Parameter(Mandatory = $true, Position = 8)]
+	[Parameter(Mandatory = $true)]
 	[ValidateNotNullOrEmpty()]
 	[string] $DNSSufix
 	,
 	[ValidateScript( { Test-Path($_) -PathType Container;} )]
-	[Parameter(Mandatory = $false, Position = 9)]
+	[Parameter(Mandatory = $false)]
 	[ValidateNotNullOrEmpty()]
 	[string] $basePath = "$env:ProgramFiles\dfch\cumulus\IPDeployment"
 	,
-	[Parameter(Mandatory = $false, Position = 10)]
+	[Parameter(Mandatory = $false)]
 	[ValidateNotNullOrEmpty()]
 	[string] $configFile
 	,
+	# DFCHECK TODO remove hard coded path
 	[ValidateScript( { Test-Path($_) -PathType Leaf; } )]
-	[Parameter(Mandatory = $false, Position = 11)]
+	[Parameter(Mandatory = $false)]
 	[ValidateNotNullOrEmpty()]
 	[string] $BFISoftFile=( Join-Path  $basePath 'SourceSoftware\bfi10\bfi.exe' )
 	,
-	[Parameter(Mandatory = $false, Position = 12)]
+	[Parameter(Mandatory = $false)]
 	[ValidateNotNullOrEmpty()]
 	[boolean] $disconnectVC = $false
 )
@@ -269,8 +270,8 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function New-VirtualMachineF
 # SIG # Begin signature block
 # MIIW3AYJKoZIhvcNAQcCoIIWzTCCFskCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUXvKyd5KwI0YOG+o8+TW01wHl
-# lKOgghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU4Co2c7pvkLM9+Cbq+wtMNusF
+# yQ+gghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
 # VzELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExEDAOBgNV
 # BAsTB1Jvb3QgQ0ExGzAZBgNVBAMTEkdsb2JhbFNpZ24gUm9vdCBDQTAeFw0xMTA0
 # MTMxMDAwMDBaFw0yODAxMjgxMjAwMDBaMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQK
@@ -368,25 +369,25 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function New-VirtualMachineF
 # bnYtc2ExJzAlBgNVBAMTHkdsb2JhbFNpZ24gQ29kZVNpZ25pbmcgQ0EgLSBHMgIS
 # ESFgd9/aXcgt4FtCBtsrp6UyMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQow
 # CKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcC
-# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBQIUzFZShbK+RZtLd4y
-# iPHWUGKJODANBgkqhkiG9w0BAQEFAASCAQA9HM0ogdmpPgyr6dpnbNqTkfi19eE3
-# gVC1Plp7dklI7qA7c7iTIb9fdMMMuawr4eNK/qZnUh9719uGgeK0RoiMozh9SBMh
-# 5xk6kEsI7jiy6U4kasHVlJhpam/vZbE8U85VZzKMiDstLXrnIPyCwHzqbBqAjPCq
-# rafPjXjDWA2/mPN98fZCDa+bZDKoeUeiRLi6skIeMmJnx8BhsHfdWDstiE6Jn5Ct
-# TuSKvC6dg/OtgqcdDzw9jO47uJ1kd55cVjhvStlK0aqqUxaNXrn5AFpbZG2rVEip
-# n0E/lo1JwhqelrsVG0ZT6VnHGQO1mlWihw4EY6VNnvGHIekCQKGxycyhoYICojCC
+# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBSGvGhMzHbkHIjzJ+kT
+# bCtvDC4/gzANBgkqhkiG9w0BAQEFAASCAQAXWfvJQpsWz5+O9z9cMxzUd/3oTjp4
+# QXjm9eLesUcrPGWPIjEszCjmSCxYZwQ+dsY9JiwlHLGdQDlcrEDII3iOXyGzQC2d
+# zXPnXK6ueKHIXgHHOjaNUt2ag6gIdWmCuryuERsureHA+yhRLGFcsuDfOnxmPVlr
+# 8eCNzWSuQZtTbuc62J593P8xl7Yx6OCaqgq6jBVbHpHKsphEfYR8UzvzE1x3g7xu
+# wGPeB3tlEjimeotRN7UDE7B8DYLPI2ZVphhUnrzs7adtT1sELqQXdbE+7O4FZrLo
+# W/WgRjF15lVXCw2KGbkc9B46q4WPzwtEONjnJEZbaXveNUypJIrW+g0JoYICojCC
 # Ap4GCSqGSIb3DQEJBjGCAo8wggKLAgEBMGgwUjELMAkGA1UEBhMCQkUxGTAXBgNV
 # BAoTEEdsb2JhbFNpZ24gbnYtc2ExKDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0
 # YW1waW5nIENBIC0gRzICEhEhQFwfDtJYiCvlTYaGuhHqRTAJBgUrDgMCGgUAoIH9
 # MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE1MDEx
-# NDA2NTcwN1owIwYJKoZIhvcNAQkEMRYEFAiPwfEgB3gigreziTgj6MQ/OJMaMIGd
+# NDE3MTkyOVowIwYJKoZIhvcNAQkEMRYEFFvsbJOBUhUAhWvx55BybM+HmlG3MIGd
 # BgsqhkiG9w0BCRACDDGBjTCBijCBhzCBhAQUjOafUBLh0aj7OV4uMeK0K947NDsw
 # bDBWpFQwUjELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2Ex
 # KDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0YW1waW5nIENBIC0gRzICEhEhQFwf
-# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQA1X3sZ5IvAhbgeASApjJPZ
-# 1kwUITPSwIT/4H5pkC+ovn71IYtBywnNF6VKyqkebnJnvZlAEDbxC0+E4QNCEeHV
-# 5Mg7RQsHp2+td0HUOH9Kswr7POhCjKxl2Fmrp/w+7feEzN5kAeigvMlyw1oxmKMT
-# rjOTwngFP5AoRwGtTJ6NQrMjuBXSR6WIq/lcvpDddDbGlpZj11oyokJrfw/I3LM+
-# /4aHKLAreqW9GpAGlLG6A/9GztUCkurjV56AejrMLjTBlPuQVMLpTjSDKTK4eWNh
-# gveAofnxt/6/nkszaPQDvAaAu7Etj9ridH0xVO/aBhZskpoycV8TCO3yf/4P5Xf2
+# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQCXYmAObw+TzwAN/T8OYPQF
+# pXJCNh9Scc63XwTyJdzCBfBFLy3Qez5E9flQaTv8X+1sbBYho0+zoh55MJZtlXsI
+# MH8Mi7Lnl8Bzut4bkP0Mu0r11i502QjD6qVjVEq7/ZL417StPPy1Ga/8Vh0cqRb7
+# 7uxScyYyONVG0QziCxU+A7+QGeqSWdCDkI7floIHkWRzPvsGs9r788Z+uKwEW7Ys
+# SLhqjxPtq34ly/0jBBnUPFkvzKEz4IxIyqB5ASDR3DdjnoEP9jW44x0FNj6/qt0k
+# /fstCCBlCfeZzYf08u/gn469xW+xV+82aQvACI0ZXuiouZl/KIwi4edcS+VtMtKx
 # SIG # End signature block
