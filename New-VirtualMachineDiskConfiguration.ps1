@@ -2,91 +2,38 @@ function New-VirtualMachineDiskConfiguration {
 <#
 
 .SYNOPSIS
-
 Creates a VMDiskConfig Object
 
 
-
 .DESCRIPTION
-
 Creates a VMDiskConfig Object that will be used for VM vSphere based deployments
-
-For more information about Cmdlets see 'about_Functions_CmdletBindingAttribute'.
-
 
 
 .OUTPUTS
-
 This Cmdlet returns a VMDiskConfig hashtable with the required/supported properties. On failure the string contains $null.
-
-For more information about output parameters see 'help about_Functions_OutputTypeAttribute'.
-
 
 
 .INPUTS
-
 See PARAMETER section for a description of input parameters.
-
-For more information about input parameters see 'help about_Functions_Advanced_Parameters'.
-
-
-
-.PARAMETER DatastoreName
-
-Name of the target datastore.
-
-
-
-.PARAMETER DiskMB
-
-Disksize in MB
-
-.PARAMETER DiskStorageFormat
-
-DiskStorageFormat
-
-.PARAMETER ControllerType
-
-Type of the required Disk Controller
-
-.PARAMETER DiskType
-
-Type of the required Disk
-
-.PARAMETER Persistence
-
-Type of the required Disk persistence
-
-.PARAMETER AdvancedOptions
-
-Pass advanced options disk options
-
 
 
 .EXAMPLE
+New-VirtualMachineDiskConfiguration -DatastoreName vmnfs01 -CapacityMB 1024 -StorageFormat thin -ControllerType ParaVirtual
 
 Create a diskconfiguration with the required parameters.
 
-New-VirtualMachineDiskConfiguration -DatastoreName vmnfs01 -CapacityMB 1024 -StorageFormat thin -ControllerType ParaVirtual
-
-
 
 .EXAMPLE
+New-VirtualMachineDiskConfiguration -DatastoreName vmnfs01 -CapacityMB 1024 -StorageFormat thin -ControllerType VirtualLsiLogicSAS -UnitID 0:1 -Type Flat -Persistence Persistent
 
 Create a diskconfiguration with optional parameters
 
-New-VirtualMachineDiskConfiguration -DatastoreName vmnfs01 -CapacityMB 1024 -StorageFormat thin -ControllerType VirtualLsiLogicSAS -UnitID 0:1 -Type Flat -Persistence Persistent
-
-
 
 .LINK
-
 Online Version: http://dfch.biz/biz.dfch.PS/Cumulus/VI/New-VirtualMachineDiskConfiguration
 
 
-
 .NOTES
-
 See module manifest for required software versions and dependencies at:
 http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
 
@@ -97,42 +44,46 @@ http://dfch.biz/biz/dfch/PS/Cumulus/VI/biz.dfch.PS.Cumulus.VI.psd1/
 
 Param
 (
+	# Name of the target datastore
 	[Parameter(Mandatory = $true)]
 	[ValidateNotNullOrEmpty()]
 	[string] $DatastoreName
 	,
+	# Specifies the disk size in MB
 	[Parameter(Mandatory = $true)]
 	[ValidateNotNullOrEmpty()]
 	[int64] $CapacityMB
 	,
+	# Specifies whether the disk should be thin or thick provisioned
+	[ValidateSet("thin","thick")]
 	[Parameter(Mandatory = $true)]
 	[ValidateNotNullOrEmpty()]
-	[ValidateSet("thin","thick")]
 	[string] $StorageFormat
 	,
+	# Specifies the disk controller type
+	[ValidateSet("Default", "ParaVirtual", "VirtualBusLogic", "VirtualLsiLogic", "VirtualLsiLogicSAS")]
 	[Parameter(Mandatory = $true)]
-	[ValidateNotNullOrEmpty()]
-	[ValidateSet("Default","ParaVirtual", "VirtualBusLogic", "VirtualLsiLogic", "VirtualLsiLogicSAS" )]
 	[string] $ControllerType
 	,
+	# Specifies the controller ID
 	[Parameter(Mandatory = $false)]
 	[ValidateNotNullOrEmpty()]
-	[string] $UnitID
+	[string] $UnitID = '0:1'
 	,
-	[Parameter(Mandatory = $false)]
-	[ValidateNotNullOrEmpty()]
+	# Specifies the disk device type
 	[ValidateSet("Flat","RawVirtual", "RawPhysical", "unknown")]
+	[Parameter(Mandatory = $false)]
 	[string] $Type = "Flat"
 	,
-	[Parameter(Mandatory = $false)]
-	[ValidateNotNullOrEmpty()]
+	# Specifies the disk persistence
 	[ValidateSet("Persistent", "IndependentNonPersistent")]
+	[Parameter(Mandatory = $false)]
 	[string] $Persistence = "Persistent"
 	,
+	# This parameter lets you specify arbitrary disk options
 	[Parameter(Mandatory = $false)]
 	[ValidateNotNullOrEmpty()]
 	[hashtable] $AdvancedOptions
-	
 )
 
 try
@@ -182,8 +133,8 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function New-VirtualMachineD
 # SIG # Begin signature block
 # MIIW3AYJKoZIhvcNAQcCoIIWzTCCFskCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUqPZfy6BlaTPaSv56KUYnCZ2Q
-# gIugghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUZ3Dlib2q9fO9Gu91CWb1Yyhf
+# toGgghGYMIIEFDCCAvygAwIBAgILBAAAAAABL07hUtcwDQYJKoZIhvcNAQEFBQAw
 # VzELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExEDAOBgNV
 # BAsTB1Jvb3QgQ0ExGzAZBgNVBAMTEkdsb2JhbFNpZ24gUm9vdCBDQTAeFw0xMTA0
 # MTMxMDAwMDBaFw0yODAxMjgxMjAwMDBaMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQK
@@ -281,25 +232,25 @@ if($MyInvocation.ScriptName) { Export-ModuleMember -Function New-VirtualMachineD
 # bnYtc2ExJzAlBgNVBAMTHkdsb2JhbFNpZ24gQ29kZVNpZ25pbmcgQ0EgLSBHMgIS
 # ESFgd9/aXcgt4FtCBtsrp6UyMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQow
 # CKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcC
-# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBSe2qOfyPHJPTXYK2ms
-# g9aBOJG3lDANBgkqhkiG9w0BAQEFAASCAQCI1pOUDt2bE10D+hbsJ0lNgeOTgUHU
-# c1O18LTtMIlo1+jLhNtDg1kFshvpkcCflnwXxXwju1ooKI830DfBCW9a59kX53hi
-# DJgPgbYv4fHb1VaKJOH6y0stYObyFIRnm8uHPj6AcFLlv1UownLYN7nNKUckCwyk
-# SVv/v4oVzSTlrAJmgq/zu6uDHPPPP/0Y262OdKKt7ALdo/TiuuZrLExp1Bx8nMrP
-# Cu6njnQT9XxivPr6Ai2lUqLgCvtOsgaNlHLsimN16BPxfPP/ZsYow7+hAAPWEiLm
-# 8Kwn1eakJ2v8wErnYk+hv9nlvMMlYFMn/fsRyXet0Say0kEADwh1HcdyoYICojCC
+# AQsxDjAMBgorBgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBQ88uNhfiP5WJHsPEzR
+# WnOf4pLF8zANBgkqhkiG9w0BAQEFAASCAQCZ7yxWyuSKnxRDuFufluGUBAGjRH2E
+# /1nuAo9gW63GN9kZMpbF+q6MA8U2sNZTuiCK5HS8XR05lmsyudsQ+PipIyRdSAeo
+# yzq9erG2wt67sOt2a2mAZhmDaN3qWX7aueawt5aXqv9V6TeDV38JphyULrtd4KFh
+# 6KsMs1uiGjMWOub8Ot4jXNgJ+glpLDMoZHM4MEeVJdtkn/nJZU25JHJxg8b1DPDU
+# EXfa733xYxkFyB/JlL/TKCdnOCmwpmBnqV4dUYEf0VbDo21DXR7Ag0KO31TiIc0A
+# xYq98J0IGIsHsVDcw1xj+j/uRVGJE4dg/E18676onsAmdGi+gEJhw3V0oYICojCC
 # Ap4GCSqGSIb3DQEJBjGCAo8wggKLAgEBMGgwUjELMAkGA1UEBhMCQkUxGTAXBgNV
 # BAoTEEdsb2JhbFNpZ24gbnYtc2ExKDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0
 # YW1waW5nIENBIC0gRzICEhEhQFwfDtJYiCvlTYaGuhHqRTAJBgUrDgMCGgUAoIH9
 # MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE1MDEx
-# NDE3MTkyOFowIwYJKoZIhvcNAQkEMRYEFPG1Y8TVw9MV0Mk60AiRT+NVtYh0MIGd
+# NTIyMjkzN1owIwYJKoZIhvcNAQkEMRYEFH0PyT630aCGjoURZ/NKT3KAFvAeMIGd
 # BgsqhkiG9w0BCRACDDGBjTCBijCBhzCBhAQUjOafUBLh0aj7OV4uMeK0K947NDsw
 # bDBWpFQwUjELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2Ex
 # KDAmBgNVBAMTH0dsb2JhbFNpZ24gVGltZXN0YW1waW5nIENBIC0gRzICEhEhQFwf
-# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQAWuGkvbTrnJndWIX6j3s3r
-# qM9sotRU7FtWVSC+CEoaNinVp3jyIZmsap35jW8b80F/j1xfYTNmQ54Jn9t+ORTa
-# w1Mqpj51oqofcL28wmYU7TW9iw/OL4y+aiTifAhRwLqcMwNyax/hLXHB9EBDrmA1
-# yhZ2SRywfYaZwWICFH/ZuX1T9CET40hcRfrdrXGiZ5XeywQ53mmXgSHtENWxCo+/
-# r9FSYznb+BwQpN4Hx8vYZgIKE17cTpLD65wpnavKP40sBAp+280csYyOf5JtPonQ
-# N29IW9g0iob5i0qrJTAI1yy8B6q3o8Gswy6al9RJ3nui5ymMl4/r+baPFbiZ+ZSo
+# DtJYiCvlTYaGuhHqRTANBgkqhkiG9w0BAQEFAASCAQCOAcrQS/oo3uhAdjF6yStA
+# QnpwqzU1x+7qh8tX1GZ+UrY5ksatu/AN6t8pi85IIjG38klQi02rRp3TdZlx1wN1
+# C+MzQSF0e4ZGYks4lymHJ3wgYyyJBDzP+KHynKJPyURmZBVivfeSKD2bBgWXm4FC
+# /sTG6ZKbhn0/mcY6Dd4H0sBULxPdU8EbZ1QloaPMu69KZ9YqKgw1kN5Fy9AqrOdV
+# AKqCiuZK1yfViao4A9hArjI5kaC341bK/OYSm2X3nbEfNLpPDIUeSeQ3Hqkrm6IJ
+# gLwsOaWJ8gATXG5Lt0ealmI4DV2GdfvrwBa0iUIVM5KH67C8j0Icb23hVLdW6xJY
 # SIG # End signature block
