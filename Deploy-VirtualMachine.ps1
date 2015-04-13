@@ -90,10 +90,10 @@ PARAM
 		Log-Debug -fn $fn -msg ('VMName:{0} ClusterName:{1} RP:{2} NumCPU:{3} MemoryMB:{4} GuestID:{5} Diskconfigs:{6} netConfigs:{7} Floppy:{8} CD:{9} UpgradePolicy:{10} SyncTimeWithHost:{11} vCpuHotAdd:{12} MemHotAdd:{13} $VideoMemoryMB:{14}' -f $Name, $ClusterName, $ResourcePoolName,  $NumCpu, $MemoryMB, $GuestId, $diskConfigs, $nicConfigs, $Floppy, $CD, $UpgradePolicy, $SyncTimeWithHost, $vCpuHotAdd, $MemHotAdd, $VideoMemoryMB )
 		
 		Log-Debug -fn $fn -msg ( "Check if VM already exists: {0}" -f $Name )
-		$VM = Get-VM -Name $Name -ea SilentlyContinue;
-		if( $VM -and ( ( 'VirtualMachineImpl' -eq $VM.GetType().Name) -or (('Array') -eq $VM.GetType().BaseType.Name ) ))
+		$VM = Get-VM -Name $Name -ea SilentlyContinue | Select -First 1;
+		if( $VM )
 		{
-			$e = New-CustomErrorRecord -m ( 'VM with same name already exists: {0}' -f $Name )
+			$e = New-CustomErrorRecord -m ( 'VM with same name already exists: {0}' -f $Name ) -cat ResourceExists -o $VM;
             throw($gotoError);
 		}
 		
