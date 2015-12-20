@@ -1,6 +1,10 @@
 biz.dfch.PS.Cumulus.VI
 ======================
 
+[![License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://github.com/dfch/biz.dfch.PS.Cumulus.VI/blob/master/LICENSE)
+![NuGet downloads](https://img.shields.io/nuget/dt/biz.dfch.PS.Cumulus.VI.svg)
+![Version](https://img.shields.io/nuget/v/biz.dfch.PS.Cumulus.VI.svg)
+
 Module: biz.dfch.PS.Cumulus.VI
 
 d-fens GmbH, General-Guisan-Strasse 6, CH-6300 Zug, Switzerland
