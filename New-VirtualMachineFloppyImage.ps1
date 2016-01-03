@@ -88,7 +88,7 @@ param
 		
 		Log-Debug -fn $fn -msg ('Floppy Content Parameters: IpAddr:{0} Subnet:{1} Gateway:{2} PrimDNS:{3} SeconDNS:{4} DNSSufix:{5}' -f $IpAddr, $Subnet, $Gateway , $PrimDNS, $SeconDNS, $DNSSufix);
 		
-		$guiD = [guid]::NewGuid().Guid
+		$guiD = [guid]::NewGuid().ToString()
 		
 		Log-Debug -fn $fn -msg ("Check if floppy generator exe exists: {0}" -f $BFISoftFile);
 		if( ! (Test-Path $BFISoftFile) )
